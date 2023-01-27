@@ -1,6 +1,6 @@
 import { isBetween } from "../utils/common";
 
-import { sectionDatas, getDomDatas, CycleDomData, OnewayDomData } from "../datas";
+import { sectionDatas, getDomDatas } from "../datas";
 
 export default function handleScrollHeader(scrollY: number) {
   sectionDatas.forEach((sd, i) => {
@@ -16,15 +16,15 @@ export default function handleScrollHeader(scrollY: number) {
 }
 
 function handleScrollMain(scrollY: number) {
-  getDomDatas().forEach((dData) => {
+  getDomDatas().forEach((dData: any) => {
     const element = document.getElementById(dData.id) as HTMLElement;
     if (dData.type === "oneway") {
       const {
         id,
         type,
-        interval: { a1Start, a1End },
+        scrollBoundary: { a1Start, a1End },
         ...animations
-      } = dData as OnewayDomData;
+      } = dData;
       if (scrollY < a1Start) {
         // scroll not reached
         animations.handleNotReached(element);
@@ -40,9 +40,9 @@ function handleScrollMain(scrollY: number) {
       const {
         id,
         type,
-        interval: { a1Start, a1End, a2Start, a2End },
+        scrollBoundary: { a1Start, a1End, a2Start, a2End },
         ...animations
-      } = dData as CycleDomData;
+      } = dData;
       if (scrollY >= a1Start) {
         if (scrollY <= a1End) {
           // a1

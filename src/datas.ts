@@ -1,240 +1,250 @@
-import { manipulateDirectly, manipulateLinearly } from "./manipulator/";
+import { manipulateDirectly, manipulateLinearly } from "./manipulator";
 
-type DomData = {
-  id: string;
-  type: string;
-  interval: any;
-  values: any;
-};
+// interface AnimatedElement {
+//   id: string;
+//   type: string;
+//   scrollBoundary: {
+//     a1Start: number;
+//     a1End: number;
+//     a2Start?: number;
+//     a2End?: number;
+//   };
+//   keyframeDatas: {
+//     a1: Array<{
+//       name: string;
+//       from: number;
+//       to: number;
+//     }>;
+//     a2?: Array<{
+//       name: string;
+//       from: number;
+//       to: number;
+//     }>;
+//   };
+// }
 
-export interface OnewayDomData extends DomData {
-  handleNotReached: (dom: HTMLElement) => void;
-  a1: (dom: HTMLElement, scrollY: number) => void;
-  handlePassed: (dom: HTMLElement) => void;
-}
+// export interface OnewayAnimatedElement extends AnimatedElement {
+//   handleNotReached: (dom: HTMLElement) => void;
+//   a1: (dom: HTMLElement, scrollY: number) => void;
+//   handlePassed: (dom: HTMLElement) => void;
+// }
 
-export interface CycleDomData extends OnewayDomData {
-  handleStaticVisible: (dom: HTMLElement) => void;
-  a2: (dom: HTMLElement, scrollY: number) => void;
-}
+// export interface CycleAnimatedElement extends OnewayAnimatedElement {
+//   handleStaticVisible: (dom: HTMLElement) => void;
+//   a2: (dom: HTMLElement, scrollY: number) => void;
+// }
 
-export const initialDatas: Array<DomData> = [
+export const initialAnimatedElements: any = [
   {
     id: "intro-beyondWords",
     type: "oneway",
-    interval: {
+    scrollBoundary: {
       a1Start: 0,
       a1End: 240,
     },
-    values: {
+    keyframeDatas: {
       a1: [
         { name: "opacity", from: 1, to: 0 },
         { name: "scale", from: 1, to: 0.9 },
       ],
     },
   },
-  {
-    id: "intro-mouseWheelIcon",
-    type: "oneway",
-    interval: {
-      a1Start: 50,
-      a1End: 60,
-    },
-    values: {
-      a1: [{ name: "opacity", from: 1, to: 0 }],
-    },
-  },
-  {
-    id: "intro-ipad",
-    type: "cycle",
-    interval: {
-      a1Start: 1550,
-      a1End: 1790,
-      a2Start: 2700,
-      a2End: 2960,
-    },
-    values: {
-      a1: [
-        { name: "opacity", from: 0, to: 1 },
-        {
-          name: "translateY",
-          from: 7,
-          to: 0,
-        },
-      ],
-      a2: [
-        { name: "opacity", from: 1, to: 0 },
-        {
-          name: "translateY",
-          from: 0,
-          to: -3,
-        },
-      ],
-    },
-  },
-  {
-    id: "intro-thefirst",
-    type: "cycle",
-    interval: {
-      a1Start: 2120,
-      a1End: 2390,
-      a2Start: 2700,
-      a2End: 2960,
-    },
-    values: {
-      a1: [
-        { name: "opacity", from: 0, to: 1 },
-        {
-          name: "translateY",
-          from: 7,
-          to: 0,
-        },
-      ],
-      a2: [
-        { name: "opacity", from: 1, to: 0 },
-        {
-          name: "translateY",
-          from: 0,
-          to: -3,
-        },
-      ],
-    },
-  },
-  {
-    id: "intro-access",
-    type: "cycle",
-    interval: {
-      a1Start: 4200,
-      a1End: 4590,
-      a2Start: 5120,
-      a2End: 5480,
-    },
-    values: {
-      a1: [
-        { name: "opacity", from: 0, to: 1 },
-        {
-          name: "translateY",
-          from: 5,
-          to: 0,
-        },
-      ],
-      a2: [
-        { name: "opacity", from: 1, to: 0 },
-        {
-          name: "translateY",
-          from: 0,
-          to: -10,
-        },
-      ],
-    },
-  },
-  {
-    id: "intro-creation",
-    type: "cycle",
-    interval: {
-      a1Start: 4330,
-      a1End: 4670,
-      a2Start: 5120,
-      a2End: 5480,
-    },
-    values: {
-      a1: [
-        { name: "opacity", from: 0, to: 1 },
-        {
-          name: "translateY",
-          from: 5,
-          to: 0,
-        },
-      ],
-      a2: [
-        { name: "opacity", from: 1, to: 0 },
-        {
-          name: "translateY",
-          from: 0,
-          to: -10,
-        },
-      ],
-    },
-  },
-
-  //   // {
-  //   //   domId: "intro-creation",
-  //   //   interval: [4330, 4670],
-  //   //   animations: [
-  //   //     { name: "transform", timingFunc: quadraticEquation, getValue: returnTranslateY, value: [5, 0] },
-  //   //     { name: "opacity", value: [0, 1], timingFunc: linearEquation, getValue: returnSelf },
-  //   //   ],
-  //   // },
-  //   // {
-  //   //   domId: "intro-creation",
-  //   //   interval: [5120, 5480],
-  //   //   animations: [
-  //   //     { name: "transform", timingFunc: quadraticEquation, getValue: returnTranslateY, value: [0, -5] },
-  //   //     { name: "opacity", value: [1, 0], timingFunc: linearEquation, getValue: returnSelf },
-  //   //   ],
-  //   // },
+  // {
+  //   id: "intro-mouseWheelIcon",
+  //   type: "oneway",
+  //   scrollBoundary: {
+  //     a1Start: 50,
+  //     a1End: 60,
+  //   },
+  //   keyframeDatas: {
+  //     a1: [{ name: "opacity", from: 1, to: 0 }],
+  //   },
+  // },
+  // {
+  //   id: "intro-ipad",
+  //   type: "cycle",
+  //   scrollBoundary: {
+  //     a1Start: 1550,
+  //     a1End: 1790,
+  //     a2Start: 2700,
+  //     a2End: 2960,
+  //   },
+  //   keyframeDatas: {
+  //     a1: [
+  //       { name: "opacity", from: 0, to: 1 },
+  //       {
+  //         name: "translateY",
+  //         from: 7,
+  //         to: 0,
+  //       },
+  //     ],
+  //     a2: [
+  //       { name: "opacity", from: 1, to: 0 },
+  //       {
+  //         name: "translateY",
+  //         from: 0,
+  //         to: -3,
+  //       },
+  //     ],
+  //   },
+  // },
+  // {
+  //   id: "intro-thefirst",
+  //   type: "cycle",
+  //   scrollBoundary: {
+  //     a1Start: 2120,
+  //     a1End: 2390,
+  //     a2Start: 2700,
+  //     a2End: 2960,
+  //   },
+  //   keyframeDatas: {
+  //     a1: [
+  //       { name: "opacity", from: 0, to: 1 },
+  //       {
+  //         name: "translateY",
+  //         from: 7,
+  //         to: 0,
+  //       },
+  //     ],
+  //     a2: [
+  //       { name: "opacity", from: 1, to: 0 },
+  //       {
+  //         name: "translateY",
+  //         from: 0,
+  //         to: -3,
+  //       },
+  //     ],
+  //   },
+  // },
+  // {
+  //   id: "intro-access",
+  //   type: "cycle",
+  //   scrollBoundary: {
+  //     a1Start: 4200,
+  //     a1End: 4590,
+  //     a2Start: 5120,
+  //     a2End: 5480,
+  //   },
+  //   keyframeDatas: {
+  //     a1: [
+  //       { name: "opacity", from: 0, to: 1 },
+  //       {
+  //         name: "translateY",
+  //         from: 5,
+  //         to: 0,
+  //       },
+  //     ],
+  //     a2: [
+  //       { name: "opacity", from: 1, to: 0 },
+  //       {
+  //         name: "translateY",
+  //         from: 0,
+  //         to: -10,
+  //       },
+  //     ],
+  //   },
+  // },
+  // {
+  //   id: "intro-creation",
+  //   type: "cycle",
+  //   scrollBoundary: {
+  //     a1Start: 4330,
+  //     a1End: 4670,
+  //     a2Start: 5120,
+  //     a2End: 5480,
+  //   },
+  //   keyframeDatas: {
+  //     a1: [
+  //       { name: "opacity", from: 0, to: 1 },
+  //       {
+  //         name: "translateY",
+  //         from: 5,
+  //         to: 0,
+  //       },
+  //     ],
+  //     a2: [
+  //       { name: "opacity", from: 1, to: 0 },
+  //       {
+  //         name: "translateY",
+  //         from: 0,
+  //         to: -10,
+  //       },
+  //     ],
+  //   },
+  // },
 ];
 
-export function getDomDatas(): Array<CycleDomData | OnewayDomData | DomData> {
-  const result = initialDatas.map((iData) => {
-    if (iData.type === "oneway") {
+export function getDomDatas() {
+  const result = initialAnimatedElements.map((iAE: any) => {
+    if (iAE.type === "oneway") {
       const handleNotReached = (dom: HTMLElement) => {
-        iData.values.a1.forEach((a: any) => {
+        iAE.keyframeDatas.a1.forEach((a: any) => {
           manipulateDirectly(dom, a.name, a.from);
         });
       };
       const a1 = (dom: HTMLElement, scrollY: number) => {
         const {
-          interval: { a1Start, a1End },
-          values: { a1 },
-        } = iData;
+          scrollBoundary: { a1Start, a1End },
+          keyframeDatas: { a1 },
+        } = iAE;
         a1.forEach((a: any) => {
           manipulateLinearly(dom, scrollY, a.name, [a1Start, a1End], [a.from, a.to]);
         });
       };
       const handlePassed = (dom: HTMLElement) => {
-        iData.values.a1.forEach((a: any) => {
+        iAE.keyframeDatas.a1.forEach((a: any) => {
           manipulateDirectly(dom, a.name, a.to);
         });
       };
-      const onewayDomData: OnewayDomData = { ...iData, handleNotReached, a1, handlePassed };
+      const onewayDomData = { ...iAE, handleNotReached, a1, handlePassed };
       return onewayDomData;
     } else {
       // type cycle
       const handleNotReached = (dom: HTMLElement) => {
-        iData.values.a1.forEach((a: any) => {
+        iAE.keyframeDatas.a1.forEach((a: any) => {
           manipulateDirectly(dom, a.name, a.from);
         });
       };
       const a1 = (dom: HTMLElement, scrollY: number) => {
-        const {
-          interval: { a1Start, a1End },
-          values: { a1 },
-        } = iData;
-        a1.forEach((a: any) => {
-          manipulateLinearly(dom, scrollY, a.name, [a1Start, a1End], [a.from, a.to]);
+        iAE.keyframeDatas.a1.forEach((a: any) => {
+          manipulateLinearly(
+            dom,
+            scrollY,
+            a.name,
+            [iAE.scrollBoundary.a1Start, iAE.scrollBoundary.a1End],
+            [a.from, a.to]
+          );
         });
       };
       const handleStaticVisible = (dom: HTMLElement) => {
-        iData.values.a1.forEach((a: any) => {
+        iAE.keyframeDatas.a1.forEach((a: any) => {
           manipulateDirectly(dom, a.name, a.to);
         });
       };
       const a2 = (dom: HTMLElement, scrollY: number) => {
-        const {
-          interval: { a2Start, a2End },
-          values: { a2 },
-        } = iData;
-        a2.forEach((a: any) => {
-          manipulateLinearly(dom, scrollY, a.name, [a2Start, a2End], [a.from, a.to]);
+        iAE.keyframeDatas.a2.forEach((a: any) => {
+          manipulateLinearly(
+            dom,
+            scrollY,
+            a.name,
+            [iAE.scrollBoundary.a2Start, iAE.scrollBoundary.a2End],
+            [a.from, a.to]
+          );
         });
       };
       const handlePassed = (dom: HTMLElement) => {
-        iData.values.a2.forEach((a: any) => {
+        iAE.keyframeDatas.a2.forEach((a: any) => {
           manipulateDirectly(dom, a.name, a.to);
         });
       };
-      const cycleDomData: CycleDomData = { ...iData, handleNotReached, a1, handleStaticVisible, a2, handlePassed };
+      const cycleDomData = {
+        ...iAE,
+        handleNotReached,
+        a1,
+        handleStaticVisible,
+        a2,
+        handlePassed,
+      };
       return cycleDomData;
     }
   });
