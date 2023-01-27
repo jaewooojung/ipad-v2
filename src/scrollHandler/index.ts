@@ -28,22 +28,25 @@ export default function handleScrollHeader(currentSectionIndex: number, progress
  */
 const needsUpdate: any = {};
 for (const value of Object.values(sequence.two)) {
-  value.forEach((v, i) => (needsUpdate[v.domId + i] = false));
+  value.forEach((v, i) => {
+    needsUpdate[v.domId + i] = false;
+  });
 }
 
 function handleScrollIntro(progress: number) {
   introSequence.forEach((s, i) => {
+    console.log(needsUpdate);
     const element = document.getElementById(s.domId) as any; // [todo] HTML type 확장(string literal 사용)
     const [start, end] = s.interval;
     // progress not passed
-    if (progress <= start && needsUpdate[s.domId + i]) {
+    if (needsUpdate[s.domId + i] && progress <= start) {
       s.animations.forEach((p) => {
         element.style[p.name] = p.value[0];
       });
       needsUpdate[s.domId + i] = false;
     }
     // progress passed
-    else if (progress >= end && needsUpdate[s.domId + i]) {
+    else if (needsUpdate[s.domId + i] && progress >= end) {
       s.animations.forEach((p) => {
         element.style[p.name] = p.value[1];
       });

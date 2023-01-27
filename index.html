@@ -8,8 +8,8 @@
   </head>
   <body>
     <div id="ipad-3D" class="fixed inset-0 -z-10"></div>
-    <div id="root">
-      <header class="fixed inset-0 z-10 bottom-auto p-5 flex justify-between items-center bg-transparent sm:pr-16">
+    <div id="root" class="px-4 sm:px-10">
+      <header class="fixed inset-0 z-10 bottom-auto p-4 flex justify-between items-center bg-transparent sm:p-10">
         <div><span class="text-3xl sm:text-5xl">iPad</span></div>
         <nav>
           <div id="mobile-hamburgur" class="block sm:hidden">
@@ -56,71 +56,96 @@
       <main>
         <section id="intro" class="h-screen55">
           <div class="sticky top-0 w-full h-screen">
-            <div class="absolute inset-0 flex justify-center items-center">
-              <div id="intro-beyondWords" class="text-6xl text-center sm:text-10xl">
-                <div class="mb-10">
-                  <span class="bg-clip-text bg-cover bg-gradient-to-b from-white via-white to-gray-900 text-transparent"
-                    >Beyond</span
-                  >
+            <div class="absolute inset-0">
+              <div class="w-full h-full flex justify-center items-center">
+                <div id="intro-beyondWords" class="text-6xl text-center sm:text-10xl">
+                  <div class="mb-10">
+                    <span
+                      class="bg-clip-text bg-cover bg-gradient-to-b from-white via-white to-gray-900 text-transparent"
+                      >Beyond</span
+                    >
+                  </div>
+                  <div>Words</div>
                 </div>
-                <div>Words</div>
-              </div>
-              <div id="intro-mouseWheelIcon" class="absolute bottom-10 text-center">
-                <div class="w-5 h-9 flex justify-center items-center border border-solid border-white rounded-xl">
-                  <div class="w-1 h-3 rounded-xl bg-white animate-flowdown"></div>
+                <div id="intro-mouseWheelIcon" class="absolute bottom-10 text-center">
+                  <div class="w-5 h-9 flex justify-center items-center border border-solid border-white rounded-xl">
+                    <div class="w-1 h-3 rounded-xl bg-white animate-flowdown"></div>
+                  </div>
+                  <div class="rotate-180">^</div>
                 </div>
-                <div class="rotate-180">^</div>
-              </div>
-              <div class="absolute top-1/3 w-5/6 text-center leading-normal sm:w-1/2">
-                <div id="intro-ipad" class="opacity-0 text-5xl sm:text-9xl">i - Pad</div>
-                <div id="intro-thefirst" class="opacity-0 text-2xl sm:text-3xl">
-                  The first smart tactile graphics display for the visually impaired.
+                <div class="absolute top-1/3 w-5/6 text-center leading-normal sm:w-1/2">
+                  <div id="intro-ipad" class="opacity-0 text-5xl sm:text-9xl">i - Pad</div>
+                  <div id="intro-thefirst" class="opacity-0 text-2xl sm:text-3xl">
+                    The first smart tactile graphics display for the visually impaired.
+                  </div>
                 </div>
               </div>
             </div>
-            <div
-              class="absolute inset-0 p-4 grid grid-rows-4 grid-cols-1 font-bold sm:p-10 sm:grid-rows-3 sm:grid-cols-4 sm:gap-8"
-            >
-              <div
-                id="intro-access"
-                class="opacity-0 row-start-1 row-end-2 self-center text-3xl sm:row-start-1 sm:row-end-2 sm:col-start-1 sm:col-end-5 sm:text-7xl"
-              >
-                Access visual content from any source.
-              </div>
-              <div
-                id="intro-creation"
-                class="opacity-0 row-start-2 row-end-3 overflow-auto sm:row-start-3 sm:row-end-4 sm:col-start-1 sm:col-end-2"
-              >
-                <div class="sm:mb-4"><span class="text-lg sm:text-4xl">Creation</span></div>
-                <div class="text-sm sm:text-2xl">
-                  For the first time, you can feel your handwriting, sketches, signature, and more. Dot Pad can convert
-                  any input on the connected device into a tactile graphic instantly.
+            <div class="absolute inset-0">
+              <div class="w-full h-full grid grid-rows-4 grid-cols-1 font-bold sm:grid-rows-3 sm:grid-cols-4 sm:gap-8">
+                <div
+                  id="intro-access"
+                  class="opacity-0 row-start-1 row-end-2 self-center text-3xl sm:row-start-1 sm:row-end-2 sm:col-start-1 sm:col-end-5 sm:text-7xl"
+                >
+                  Access visual content from any source.
                 </div>
-              </div>
-              <div
-                id="intro-mobility"
-                class="opacity-0 row-start-3 row-end-4 overflow-auto sm:row-start-3 sm:row-end-4 sm:col-start-2 sm:col-end-3"
-              >
-                <div class="sm:mb-4"><span class="text-lg sm:text-4xl">Mobility</span></div>
-                <div class="text-sm sm:text-2xl">
-                  Get around independently with tactile maps. The Dot Pad technology is permanently installed in the
-                  public transportation kiosks of Busan, Korea.
+                <div
+                  id="intro-creation"
+                  class="opacity-0 row-start-2 row-end-3 overflow-auto sm:row-start-3 sm:row-end-4 sm:col-start-1 sm:col-end-2"
+                >
+                  <div class="sm:mb-4"><span class="text-lg sm:text-4xl">Creation</span></div>
+                  <div class="text-sm sm:text-2xl">
+                    For the first time, you can feel your handwriting, sketches, signature, and more. Dot Pad can
+                    convert any input on the connected device into a tactile graphic instantly.
+                  </div>
                 </div>
-              </div>
-              <div
-                id="intro-camera"
-                class="opacity-0 row-start-4 row-end-5 overflow-auto sm:row-start-3 sm:row-end-4 sm:col-start-3 sm:col-end-4"
-              >
-                <div class="sm:mb-4"><span class="text-lg sm:text-4xl">Camera</span></div>
-                <div class="text-sm sm:text-2xl">
-                  With the smartphone camera, you can turn your surroundings into tactile graphics in real-time,
-                  unlocking a whole new way to experience the world.
+                <div
+                  id="intro-mobility"
+                  class="opacity-0 row-start-3 row-end-4 overflow-auto sm:row-start-3 sm:row-end-4 sm:col-start-2 sm:col-end-3"
+                >
+                  <div class="sm:mb-4"><span class="text-lg sm:text-4xl">Mobility</span></div>
+                  <div class="text-sm sm:text-2xl">
+                    Get around independently with tactile maps. The Dot Pad technology is permanently installed in the
+                    public transportation kiosks of Busan, Korea.
+                  </div>
+                </div>
+                <div
+                  id="intro-camera"
+                  class="opacity-0 row-start-4 row-end-5 overflow-auto sm:row-start-3 sm:row-end-4 sm:col-start-3 sm:col-end-4"
+                >
+                  <div class="sm:mb-4"><span class="text-lg sm:text-4xl">Camera</span></div>
+                  <div class="text-sm sm:text-2xl">
+                    With the smartphone camera, you can turn your surroundings into tactile graphics in real-time,
+                    unlocking a whole new way to experience the world.
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
-        <section id="features" class="h-screen190"></section>
+        <section id="features" class="h-screen190">
+          <div class="sticky top-0 w-full h-screen">
+            <div class="absolute inset-0">
+              <div class="w-full h-full flex items-end sm:items-center">
+                <div id="features-dotimage" class="mb-20 sm:w-2/3 sm:mb-0">
+                  <div class="mb-5 sm:mb-10"><span class="sm:text-4xl">Dot Image Processor</span></div>
+                  <div class="sm:text-6xl">
+                    The innovative processor uses AI to analyze and segment images to produce tactile graphics best
+                    suited for visually impaired users.
+                  </div>
+                </div>
+                <div id="features visualinput" class="absolute bottom-3/4 sm:bottom-10">
+                  <span class="sm:text-2xl font-bold tracking-tighter">
+                    Visual Input → Content Detection → Semantic Rendering → Tactile mapping</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="absolute inset-0"></div>
+            <div class="absolute inset-0"></div>
+            <div class="absolute inset-0"></div>
+          </div>
+        </section>
         <section id="useCases" class="h-screen150"></section>
         <section id="contact" class="h-screen20"></section>
         <section id="about" class="h-screen15"></section>
