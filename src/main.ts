@@ -1,13 +1,5 @@
 import ThreeApp from "./webgl/";
-import {
-  handleScrollHeader,
-  handleScrollIntro,
-  handleScrollFeatures,
-  handleScrollUseCases,
-  handleScrollContact,
-  handleScrollAbout,
-} from "./scrollHandler";
-import { sectionDatas } from "./datas";
+import { handleScrollHeader, handleScrollMain } from "./scrollHandler";
 
 import "./styles/index.css";
 
@@ -24,30 +16,10 @@ threeApp.load();
 
 // Scroll
 function onScroll() {
-  const scrollTop = window.scrollY;
-  const currentSectionIndex = sectionDatas.findIndex((sd) => scrollTop < sd.scrollBoundary[1] * window.innerHeight);
-  const currentSection = sectionDatas[currentSectionIndex];
-  /**
-   * lerp 0~1
-   */
-  const progress =
-    (scrollTop - currentSection.scrollBoundary[0] * window.innerHeight) /
-    ((currentSection.scrollBoundary[1] - currentSection.scrollBoundary[0]) * window.innerHeight);
+  const scrollY = window.scrollY;
 
-  handleScrollHeader(currentSectionIndex, progress);
-  if (currentSectionIndex === 0) {
-    handleScrollIntro(progress);
-  } else if (currentSectionIndex === 1) {
-    handleScrollFeatures(progress);
-  } else if (currentSectionIndex === 2) {
-    handleScrollUseCases(progress);
-  } else if (currentSectionIndex === 3) {
-    handleScrollContact(progress);
-  } else if (currentSectionIndex === 4) {
-    handleScrollAbout(progress);
-  } else {
-    throw new Error("currentSectionIndex can not excuted");
-  }
+  handleScrollHeader(scrollY);
+  handleScrollMain(scrollY);
 }
 
 window.addEventListener("scroll", onScroll);

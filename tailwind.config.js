@@ -4,12 +4,9 @@ module.exports = {
   theme: {
     extend: {
       height: {
-        screen05: "50vh",
-        screen15: "150vh",
-        screen20: "200vh",
-        screen55: "550vh",
-        screen190: "1900vh",
+        screen60: "600vh",
         screen150: "1500vh",
+        screen190: "1900vh",
       },
       fontSize: {
         "10xl": "12rem",
