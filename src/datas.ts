@@ -1,5 +1,9 @@
 import { linearEquation, quadraticEquation } from "./utils/math";
 
+const duration = {
+  INTRO: 168,
+};
+
 function returnSelf(value: number) {
   return value;
 }
@@ -8,70 +12,170 @@ function returnScale(value: number) {
   return `scale(${value})`;
 }
 
-export const sequences = {
-  three: [
-    {
-      name: "standup",
-      interval: [0, 15 / 130],
-    },
-    {
-      name: "zoomin-slightly",
-      interval: [15 / 130, 20 / 130],
-    },
-    {
-      name: "rotation",
-      interval: [20 / 130, 39 / 130],
-    },
-    {
-      name: "zoomout-slightly",
-      interval: [39 / 130, 66 / 130],
-    },
-    {
-      name: "cloning",
-      interval: [67 / 130, 80 / 130],
-    },
-    {
-      name: "spread-clones",
-      interval: [80 / 130, 85 / 130],
-    },
-    {
-      name: "screen-effect",
-      interval: [110 / 130, 129 / 130],
-    },
-    {
-      name: "gather-clones",
-      interval: [116 / 130, 124 / 130],
-    },
-  ],
+function returnTranslateY(value: number) {
+  return `translateY(${value}px)`;
+}
+
+export const sequence = {
+  // three: [
+  //   {
+  //     name: "standup",
+  //     interval: [0, 15 / duration.INTRO],
+  //   },
+  //   {
+  //     name: "zoomin-slightly",
+  //     interval: [15 / duration.INTRO, 20 / duration.INTRO],
+  //   },
+  //   {
+  //     name: "rotation",
+  //     interval: [20 / duration.INTRO, 39 / duration.INTRO],
+  //   },
+  //   {
+  //     name: "zoomout-slightly",
+  //     interval: [39 / duration.INTRO, 66 / duration.INTRO],
+  //   },
+  //   {
+  //     name: "cloning",
+  //     interval: [67 / duration.INTRO, 80 / duration.INTRO],
+  //   },
+  //   {
+  //     name: "spread-clones",
+  //     interval: [80 / duration.INTRO, 85 / duration.INTRO],
+  //   },
+  //   {
+  //     name: "screen-effect",
+  //     interval: [110 / duration.INTRO, 129 / duration.INTRO],
+  //   },
+  //   {
+  //     name: "gather-clones",
+  //     interval: [116 / duration.INTRO, 124 / duration.INTRO],
+  //   },
+  // ],
   two: {
     intro: [
       {
-        domId: "beyondWords",
-        interval: [0, 10 / 130],
-        property: [
-          { name: "transform", value: [1, 0], timingFunc: quadraticEquation, getValue: returnScale },
+        domId: "intro-beyondWords",
+        interval: [0, 9 / duration.INTRO],
+        animations: [
+          { name: "transform", timingFunc: quadraticEquation, getValue: returnScale, value: [1, 0] },
+          { name: "opacity", timingFunc: linearEquation, getValue: returnSelf, value: [1, 0] },
+        ],
+      },
+      {
+        domId: "intro-mouseWheelIcon",
+        interval: [3 / duration.INTRO, 5 / duration.INTRO],
+        animations: [{ name: "opacity", timingFunc: linearEquation, getValue: returnSelf, value: [1, 0] }],
+      },
+      {
+        domId: "intro-ipad",
+        interval: [40 / duration.INTRO, 46 / duration.INTRO],
+        animations: [
+          { name: "transform", timingFunc: linearEquation, getValue: returnTranslateY, value: [7, 0] },
+          { name: "opacity", timingFunc: linearEquation, getValue: returnSelf, value: [0, 1] },
+        ],
+      },
+      {
+        domId: "intro-thefirst",
+        interval: [54 / duration.INTRO, 60 / duration.INTRO],
+        animations: [
+          { name: "transform", timingFunc: linearEquation, getValue: returnTranslateY, value: [7, 0] },
+          { name: "opacity", timingFunc: linearEquation, getValue: returnSelf, value: [0, 1] },
+        ],
+      },
+      {
+        domId: "intro-ipad",
+        interval: [68 / duration.INTRO, 74 / duration.INTRO],
+        animations: [
+          { name: "transform", timingFunc: linearEquation, getValue: returnTranslateY, value: [0, -3] },
           { name: "opacity", value: [1, 0], timingFunc: linearEquation, getValue: returnSelf },
         ],
       },
       {
-        domId: "mouseWheelIcon",
-        interval: [2 / 130, 4 / 130],
-        property: [{ name: "opacity", value: [1, 0], timingFunc: linearEquation, getValue: returnSelf }],
+        domId: "intro-thefirst",
+        interval: [68 / duration.INTRO, 74 / duration.INTRO],
+        animations: [
+          { name: "transform", timingFunc: linearEquation, getValue: returnTranslateY, value: [0, -3] },
+          { name: "opacity", value: [1, 0], timingFunc: linearEquation, getValue: returnSelf },
+        ],
       },
       {
-        domId: "text1",
-        interval: [38 / 130, 43 / 130],
-        property: [{ name: "opacity", value: [0, 1], timingFunc: linearEquation, getValue: returnSelf }],
+        domId: "intro-access",
+        interval: [105 / duration.INTRO, 114 / duration.INTRO],
+        animations: [
+          { name: "transform", timingFunc: quadraticEquation, getValue: returnTranslateY, value: [5, 0] },
+          { name: "opacity", value: [0, 1], timingFunc: linearEquation, getValue: returnSelf },
+        ],
       },
       {
-        domId: "text2",
-        interval: [50 / 130, 57 / 130],
-        property: [{ name: "opacity", value: [0, 1], timingFunc: linearEquation, getValue: returnSelf }],
+        domId: "intro-creation",
+        interval: [107 / duration.INTRO, 115 / duration.INTRO],
+        animations: [
+          { name: "transform", timingFunc: quadraticEquation, getValue: returnTranslateY, value: [5, 0] },
+          { name: "opacity", value: [0, 1], timingFunc: linearEquation, getValue: returnSelf },
+        ],
+      },
+      {
+        domId: "intro-mobility",
+        interval: [107 / duration.INTRO, 115 / duration.INTRO],
+        animations: [
+          { name: "transform", timingFunc: quadraticEquation, getValue: returnTranslateY, value: [5, 0] },
+          { name: "opacity", value: [0, 1], timingFunc: linearEquation, getValue: returnSelf },
+        ],
+      },
+      {
+        domId: "intro-camera",
+        interval: [107 / duration.INTRO, 115 / duration.INTRO],
+        animations: [
+          { name: "transform", timingFunc: quadraticEquation, getValue: returnTranslateY, value: [5, 0] },
+          { name: "opacity", value: [0, 1], timingFunc: linearEquation, getValue: returnSelf },
+        ],
+      },
+      {
+        domId: "intro-access",
+        interval: [125 / duration.INTRO, 133 / duration.INTRO],
+        animations: [
+          { name: "transform", timingFunc: quadraticEquation, getValue: returnTranslateY, value: [0, -5] },
+          { name: "opacity", value: [1, 0], timingFunc: linearEquation, getValue: returnSelf },
+        ],
+      },
+      {
+        domId: "intro-creation",
+        interval: [125 / duration.INTRO, 133 / duration.INTRO],
+        animations: [
+          { name: "transform", timingFunc: quadraticEquation, getValue: returnTranslateY, value: [0, -5] },
+          { name: "opacity", value: [1, 0], timingFunc: linearEquation, getValue: returnSelf },
+        ],
+      },
+      {
+        domId: "intro-mobility",
+        interval: [125 / duration.INTRO, 133 / duration.INTRO],
+        animations: [
+          { name: "transform", timingFunc: quadraticEquation, getValue: returnTranslateY, value: [0, -5] },
+          { name: "opacity", value: [1, 0], timingFunc: linearEquation, getValue: returnSelf },
+        ],
+      },
+      {
+        domId: "intro-camera",
+        interval: [125 / duration.INTRO, 133 / duration.INTRO],
+        animations: [
+          { name: "transform", timingFunc: quadraticEquation, getValue: returnTranslateY, value: [0, -5] },
+          { name: "opacity", value: [1, 0], timingFunc: linearEquation, getValue: returnSelf },
+        ],
       },
     ],
-    features: [],
-    useCases: [],
-    contact: [],
+    features: [
+      // {
+      //   domId: "intro-beyondWords",
+      //   interval: [0, 9 / duration.INTRO],
+      //   animations: [
+      //     { name: "transform", timingFunc: quadraticEquation, getValue: returnScale, value: [1, 0] },
+      //     { name: "opacity", timingFunc: linearEquation, getValue: returnSelf, value: [1, 0] },
+      //   ],
+      // },
+    ],
+    // useCases: [],
+    // contact: [],
+    // about: [],
   },
 };
 
@@ -86,30 +190,3 @@ export const sectionDatas = [
   { id: "contact", name: "Contact", scrollBoundary: [39.5, 41.5] },
   { id: "about", name: "About", scrollBoundary: [41.5, 43] },
 ];
-
-// [
-//   {
-//     name: "fadein-bigtext",
-//     interval: [38 / 130, 43 / 130],
-//   },
-//   {
-//     name: "fadein-smalltext",
-//     interval: [50 / 130, 57 / 130],
-//   },
-//   {
-//     name: "fadeout-bigsmalltext",
-//     interval: [65 / 130, 70 / 130],
-//   },
-//   {
-//     name: "fadein-bigtext",
-//     interval: [99 / 130, 108 / 130],
-//   },
-//   {
-//     name: "fadein-smalltext",
-//     interval: [102 / 130, 110 / 130],
-//   },
-//   {
-//     name: "fadeout-bigsmalltext",
-//     interval: [120 / 130, 129 / 130],
-//   },
-// ];

@@ -1,3 +1,3 @@
 export default function handleScrollFeatures(progress: number) {
-  //   console.log("handleScroll 1");
+  console.log("handleScroll", progress);
 }

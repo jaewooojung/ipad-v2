@@ -1,3 +1,3 @@
 export default function handleScrollUseCases(progress: number) {
-  //   console.log("handleScroll 2");
+  console.log("handleScroll", progress);
 }

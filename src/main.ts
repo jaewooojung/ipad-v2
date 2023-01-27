@@ -11,6 +11,9 @@ import { sectionDatas } from "./datas";
 
 import "./styles/index.css";
 
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+};
 // Three
 const ipad3D = document.getElementById("ipad-3D") as HTMLDivElement;
 const threeApp = new ThreeApp(ipad3D);
