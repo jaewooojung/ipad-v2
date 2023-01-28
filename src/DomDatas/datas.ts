@@ -6,7 +6,6 @@ export type SectionData = {
 
 export type ElementData = {
   id: string;
-  domEle: HTMLElement;
   animations: Array<AnimationType>;
 };
 
@@ -27,6 +26,8 @@ export type AnimationType = {
   values: Array<KeyframeType>;
 };
 
+export const sectionSizeMultiplier = 10000;
+
 export const initialSectionDatas: Array<SectionData> = [
   {
     id: "intro",
@@ -41,7 +42,7 @@ export const initialSectionDatas: Array<SectionData> = [
 export const initialElementDatas: Array<ElementData> = [
   {
     id: "intro-beyondWords",
-    domEle: document.getElementById("intro-beyondWords") as HTMLElement,
+
     animations: [
       {
         scrollBoundary: [0, 0.01],
@@ -54,7 +55,7 @@ export const initialElementDatas: Array<ElementData> = [
   },
   {
     id: "intro-mouseWheelIcon",
-    domEle: document.getElementById("intro-mouseWheelIcon") as HTMLElement,
+
     animations: [
       {
         scrollBoundary: [0, 0.003],
@@ -64,7 +65,7 @@ export const initialElementDatas: Array<ElementData> = [
   },
   {
     id: "intro-ipad",
-    domEle: document.getElementById("intro-ipad") as HTMLElement,
+
     animations: [
       {
         scrollBoundary: [0.03, 0.05],
@@ -84,7 +85,7 @@ export const initialElementDatas: Array<ElementData> = [
   },
   {
     id: "intro-thefirst",
-    domEle: document.getElementById("intro-thefirst") as HTMLElement,
+
     animations: [
       {
         scrollBoundary: [0.05, 0.07],
@@ -104,7 +105,7 @@ export const initialElementDatas: Array<ElementData> = [
   },
   {
     id: "intro-access",
-    domEle: document.getElementById("intro-access") as HTMLElement,
+
     animations: [
       {
         scrollBoundary: [0.13, 0.15],
@@ -124,7 +125,7 @@ export const initialElementDatas: Array<ElementData> = [
   },
   {
     id: "intro-creation-mobility-camera",
-    domEle: document.getElementById("intro-creation-mobility-camera") as HTMLElement,
+
     animations: [
       {
         scrollBoundary: [0.135, 0.155],
@@ -144,7 +145,7 @@ export const initialElementDatas: Array<ElementData> = [
   },
   {
     id: "features-dotimage",
-    domEle: document.getElementById("features-dotimage") as HTMLElement,
+
     animations: [
       {
         scrollBoundary: [0.22, 0.24],
@@ -164,7 +165,7 @@ export const initialElementDatas: Array<ElementData> = [
   },
   {
     id: "features-visualinput",
-    domEle: document.getElementById("features-visualinput") as HTMLElement,
+
     animations: [
       {
         scrollBoundary: [0.23, 0.25],
@@ -184,7 +185,7 @@ export const initialElementDatas: Array<ElementData> = [
   },
   {
     id: "features-interact",
-    domEle: document.getElementById("features-interact") as HTMLElement,
+
     animations: [
       {
         scrollBoundary: [0.31, 0.33],
@@ -204,7 +205,7 @@ export const initialElementDatas: Array<ElementData> = [
   },
   {
     id: "features-asimplebluetooth",
-    domEle: document.getElementById("features-asimplebluetooth") as HTMLElement,
+
     animations: [
       {
         scrollBoundary: [0.39, 0.42],
@@ -224,7 +225,7 @@ export const initialElementDatas: Array<ElementData> = [
   },
   {
     id: "features-gamechanging",
-    domEle: document.getElementById("features-gamechanging") as HTMLElement,
+
     animations: [
       {
         scrollBoundary: [0.49, 0.51],
@@ -238,7 +239,7 @@ export const initialElementDatas: Array<ElementData> = [
   },
   {
     id: "features-dotactuator",
-    domEle: document.getElementById("features-dotactuator") as HTMLElement,
+
     animations: [
       {
         scrollBoundary: [0.49, 0.55],
@@ -248,7 +249,7 @@ export const initialElementDatas: Array<ElementData> = [
   },
   {
     id: "features-black-curtain",
-    domEle: document.getElementById("features-black-curtain") as HTMLElement,
+
     animations: [
       {
         scrollBoundary: [0.49, 0.49001],
