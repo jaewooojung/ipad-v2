@@ -9,7 +9,9 @@
   <body>
     <div id="ipad-3D" class="fixed inset-0 -z-10"></div>
     <div id="root" class="px-4 sm:px-10">
-      <header class="fixed inset-0 z-10 bottom-auto p-4 flex justify-between items-center bg-transparent sm:p-10">
+      <header
+        class="fixed inset-0 z-10 bottom-auto p-4 flex justify-between items-center bg-transparent sm:mr-10 sm:p-10"
+      >
         <div><span class="text-3xl sm:text-5xl">iPad</span></div>
         <nav>
           <div id="mobile-hamburgur" class="block sm:hidden">
@@ -44,17 +46,11 @@
               <div id="navlink_animated3" class="absolute inset-0 bg-white origin-left scale-x-0"></div>
               <span class="text-2xl tracking-widest mix-blend-difference">Contact</span>
             </li>
-            <li
-              class="relative px-5 py-1 border border-solid border-white rounded-3xl overflow-hidden cursor-pointer hover:bg-white"
-            >
-              <div id="navlink_animated4" class="absolute inset-0 bg-white origin-left scale-x-0"></div>
-              <span class="text-2xl tracking-widest mix-blend-difference">About</span>
-            </li>
           </ul>
         </nav>
       </header>
       <main>
-        <section id="intro" class="h-screen60">
+        <section id="intro" class="h-intro">
           <div class="sticky top-0 w-full h-screen">
             <div class="absolute inset-0">
               <div class="w-full h-full flex justify-center items-center">
@@ -87,70 +83,146 @@
               <div class="w-full h-full grid grid-rows-4 grid-cols-1 font-bold sm:grid-rows-3 sm:grid-cols-4 sm:gap-8">
                 <div
                   id="intro-access"
-                  class="opacity-0 row-start-1 row-end-2 self-center text-3xl sm:row-start-1 sm:row-end-2 sm:col-start-1 sm:col-end-5 sm:text-7xl"
+                  class="opacity-0 row-start-1 row-end-2 self-center text-3xl sm:col-start-1 sm:col-end-5 sm:text-7xl"
                 >
                   Access visual content from any source.
                 </div>
                 <div
-                  id="intro-creation"
-                  class="opacity-0 row-start-2 row-end-3 overflow-auto sm:row-start-3 sm:row-end-4 sm:col-start-1 sm:col-end-2"
+                  id="intro-creation-mobility-camera"
+                  class="opacity-0 row-start-2 row-end-5 sm:row-start-3 sm:row-end-4 sm:col-start-1 sm:col-end-4 flex flex-col sm:flex-row sm:justify-between sm:gap-10"
                 >
-                  <div class="sm:mb-4"><span class="text-lg sm:text-4xl">Creation</span></div>
-                  <div class="text-sm sm:text-2xl">
-                    For the first time, you can feel your handwriting, sketches, signature, and more. Dot Pad can
-                    convert any input on the connected device into a tactile graphic instantly.
+                  <div id="intro-creation" class="flex-1 overflow-auto">
+                    <div class="sm:mb-4"><span class="text-lg sm:text-4xl">Creation</span></div>
+                    <div class="text-sm sm:text-2xl">
+                      For the first time, you can feel your handwriting, sketches, signature, and more. Dot Pad can
+                      convert any input on the connected device into a tactile graphic instantly.
+                    </div>
                   </div>
-                </div>
-                <div
-                  id="intro-mobility"
-                  class="opacity-0 row-start-3 row-end-4 overflow-auto sm:row-start-3 sm:row-end-4 sm:col-start-2 sm:col-end-3"
-                >
-                  <div class="sm:mb-4"><span class="text-lg sm:text-4xl">Mobility</span></div>
-                  <div class="text-sm sm:text-2xl">
-                    Get around independently with tactile maps. The Dot Pad technology is permanently installed in the
-                    public transportation kiosks of Busan, Korea.
+                  <div id="intro-mobility" class="flex-1 overflow-auto">
+                    <div class="sm:mb-4"><span class="text-lg sm:text-4xl">Mobility</span></div>
+                    <div class="text-sm sm:text-2xl">
+                      Get around independently with tactile maps. The Dot Pad technology is permanently installed in the
+                      public transportation kiosks of Busan, Korea.
+                    </div>
                   </div>
-                </div>
-                <div
-                  id="intro-camera"
-                  class="opacity-0 row-start-4 row-end-5 overflow-auto sm:row-start-3 sm:row-end-4 sm:col-start-3 sm:col-end-4"
-                >
-                  <div class="sm:mb-4"><span class="text-lg sm:text-4xl">Camera</span></div>
-                  <div class="text-sm sm:text-2xl">
-                    With the smartphone camera, you can turn your surroundings into tactile graphics in real-time,
-                    unlocking a whole new way to experience the world.
+                  <div id="intro-camera" class="flex-1 overflow-auto">
+                    <div class="sm:mb-4"><span class="text-lg sm:text-4xl">Camera</span></div>
+                    <div class="text-sm sm:text-2xl">
+                      With the smartphone camera, you can turn your surroundings into tactile graphics in real-time,
+                      unlocking a whole new way to experience the world.
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
-        <section id="features" class="h-screen190">
+        <section id="features" class="h-features">
           <div class="sticky top-0 w-full h-screen">
             <div class="absolute inset-0">
               <div class="w-full h-full flex items-end sm:items-center">
-                <div id="features-dotimage" class="mb-20 sm:w-2/3 sm:mb-0">
+                <div id="features-dotimage" class="opacity-0 mb-20 sm:w-2/3 sm:mb-0">
                   <div class="mb-5 sm:mb-10"><span class="sm:text-4xl">Dot Image Processor</span></div>
                   <div class="sm:text-6xl">
                     The innovative processor uses AI to analyze and segment images to produce tactile graphics best
                     suited for visually impaired users.
                   </div>
                 </div>
-                <div id="features visualinput" class="absolute bottom-3/4 sm:bottom-10">
+                <div id="features-visualinput" class="opacity-0 absolute bottom-3/4 sm:bottom-10">
                   <span class="sm:text-2xl font-bold tracking-tighter">
                     Visual Input → Content Detection → Semantic Rendering → Tactile mapping</span
                   >
                 </div>
               </div>
             </div>
-            <div class="absolute inset-0"></div>
-            <div class="absolute inset-0"></div>
-            <div class="absolute inset-0"></div>
+            <div class="absolute inset-0">
+              <div class="w-full h-full flex items-end sm:justify-end sm:items-center">
+                <div id="features-interact" class="opacity-0 mb-20 sm:mb-0 sm:w-1/2">
+                  <div class="mb-5 sm:mb-10">
+                    <span class="sm:text-4xl">Interact with the graphics and explore every detail.</span>
+                  </div>
+                  <div class="sm:text-6xl">
+                    Simple intuitive controls along with a text-to-braille panel built-in for your comfort.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="absolute inset-0">
+              <div id="features-asimplebluetooth" class="opacity-0 w-full h-full flex justify-center items-center">
+                <div class="w-full text-center sm:w-1/2">
+                  <span class="text-2xl sm:text-7xl sm:leading-relaxed">
+                    A simple bluetooth connection and boom. The App Store at your desk — the same 2.2 million apps, now
+                    accessible like never before.</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="absolute inset-0">
+              <div class="w-full h-full px-5 py-24 flex flex-col justify-between overflow-hidden sm:py-48">
+                <div class="flex-[3] flex sm:justify-end">
+                  <div id="features-gamechanging" class="opacity-0 w-full sm:w-1/2">
+                    <span class="text-3xl sm:text-7xl font-bold leading-normal"
+                      >Game-changing features that fit in your backpack.</span
+                    >
+                  </div>
+                </div>
+                <div
+                  id="features-black-curtain"
+                  class="z-10 hidden absolute top-0 left-0 bottom-0 w-1/2 sm:block"
+                  style="background: linear-gradient(to right, black 30%, transparent)"
+                ></div>
+                <div id="features-dotactuator" class="flex-[2] w-full flex translate-x-full sm:pt-24">
+                  <div class="mr-7 w-5/6 sm:w-1/5 shrink-0">
+                    <div class="mb-4"><span class="text-2xl sm:text-4xl">Dot Actuator 3.0</span></div>
+                    <div><span class="text-xl">Patented actuator technology based on electromagnetism.</span></div>
+                  </div>
+                  <div class="mr-7 w-5/6 sm:w-1/5 shrink-0">
+                    <div class="mb-4"><span class="text-2xl sm:text-4xl">iOS & iPadOS Integration</span></div>
+                    <div><span class="text-xl">Works seamlessly with iOS/iPad OS 15.2 and higher.</span></div>
+                  </div>
+                  <div class="mr-7 w-5/6 sm:w-1/5 shrink-0">
+                    <div class="mb-4"><span class="text-2xl sm:text-4xl">Dot Image Processor</span></div>
+                    <div>
+                      <span class="text-xl"
+                        >An AI based processor that renders the most meaningful tactile output.</span
+                      >
+                    </div>
+                  </div>
+                  <div class="mr-7 w-5/6 sm:w-1/5 shrink-0">
+                    <div class="mb-4"><span class="text-2xl sm:text-4xl">Intuitive Control Elements</span></div>
+                    <div>
+                      <span class="text-xl">Take control of the content with six freely assignable buttons.</span>
+                    </div>
+                  </div>
+                  <div class="mr-7 w-5/6 sm:w-1/5 shrink-0">
+                    <div class="mb-4"><span class="text-2xl sm:text-4xl">Dot Image Explorer</span></div>
+                    <div>
+                      <span class="text-xl">Explore, zoom, pan, invert, and rotate content directly on device.</span>
+                    </div>
+                  </div>
+                  <div class="mr-7 w-5/6 sm:w-1/5 shrink-0">
+                    <div class="mb-4"><span class="text-2xl sm:text-4xl">Connectivity</span></div>
+                    <div>
+                      <span class="text-xl"
+                        >Classic USB-C and and Bluetooth LE for power supply and data transfer.</span
+                      >
+                    </div>
+                  </div>
+                  <div class="mr-7 w-5/6 sm:w-1/5 shrink-0">
+                    <div class="mb-4"><span class="text-2xl sm:text-4xl">Portability</span></div>
+                    <div>
+                      <span class="text-xl"
+                        >Sized at 273 x 228 x 16 mm, weighs 1200 g, so you can take it everywhere with ease.</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
-        <section id="useCases" class="h-screen150"></section>
-        <section id="contact" class="h-screen"></section>
-        <section id="about" class="h-screen"></section>
+        <section id="useCases" class="h-useCases"></section>
+        <section id="contact" class="h-contact"></section>
       </main>
       <footer>footer</footer>
     </div>

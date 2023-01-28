@@ -4,9 +4,10 @@ module.exports = {
   theme: {
     extend: {
       height: {
-        screen60: "600vh",
-        screen150: "1500vh",
-        screen190: "1900vh",
+        intro: "2000vh",
+        features: "4000vh",
+        useCases: "3000vh",
+        contact: "1000vh",
       },
       fontSize: {
         "10xl": "12rem",
