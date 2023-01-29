@@ -1,8 +1,7 @@
 import ThreeApp from "./webgl";
-import { handleScrollHeader, handleScrollMain } from "./scrollHandler";
 
 import "./styles/index.css";
-import DomDatas from "./DomDatas";
+import Manipulator2D from "./Manipulator2D";
 
 import { throttle } from "throttle-debounce";
 
@@ -21,21 +20,20 @@ const ipad3D = document.getElementById("ipad-3D") as HTMLDivElement;
 const threeApp = new ThreeApp(ipad3D);
 threeApp.load();
 
-// DomElenets
-const domDatas = DomDatas.getInstance();
+// Manipulator2D
+const manipulator2D = Manipulator2D.getInstance();
 
 // Scroll
 function onScroll() {
   let scrY0to1 = document.body.scrollTop / document.body.scrollHeight;
-  handleScrollHeader(scrY0to1, domDatas.getSectionDatas());
-  handleScrollMain(scrY0to1, domDatas.getAniElementDatas());
+  manipulator2D.onScroll(scrY0to1);
 }
 
 document.body.addEventListener("scroll", throttle(32, onScroll));
 
 // Resize
 function onResize() {
-  // domDatas.onResize();
+  // manipulator2D.onResize();
 }
 
 window.addEventListener("resize", onResize);

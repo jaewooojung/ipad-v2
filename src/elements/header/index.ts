@@ -2,7 +2,7 @@ import { html } from "lit";
 
 import createNavLink from "./navLink";
 
-import DomDatas from "../../DomDatas";
+import DomDatas from "../../Manipulator2D";
 
 function createHeader() {
   const header = html`<header

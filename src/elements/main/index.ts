@@ -5,7 +5,7 @@ import createFeatures from "./features";
 import createUseCaeses from "./useCases";
 import createContact from "./contact";
 
-import DomDatas from "../../DomDatas";
+import DomDatas from "../../Manipulator2D";
 
 function createMain() {
   const domDats = DomDatas.getInstance();
