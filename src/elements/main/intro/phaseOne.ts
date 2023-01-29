@@ -1,7 +1,8 @@
 import { html } from "lit";
 
 import Manipulator2D from "../../../Manipulator2D";
-import { ScrollAnimation } from "../../../Manipulator2D/datas";
+import { ScrollAnimation, sectionDatas } from "../../../Manipulator2D/datas";
+import { checkScrollBoundary } from "../../../utils/devOnly";
 
 const introBeyondWords: ScrollAnimation = {
   id: "intro-beyondWords",
@@ -25,6 +26,12 @@ const introMousewheelIcon: ScrollAnimation = {
     },
   ],
 };
+
+const scrollAnimations = [introBeyondWords, introMousewheelIcon];
+
+if (import.meta.env.DEV) {
+  checkScrollBoundary(sectionDatas[0], scrollAnimations);
+}
 
 Manipulator2D.getInstance().addScrollAnimationElement([introBeyondWords, introMousewheelIcon]);
 

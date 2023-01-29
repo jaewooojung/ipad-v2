@@ -1,7 +1,8 @@
 import { html } from "lit";
 
 import Manipulator2D from "../../../Manipulator2D";
-import { ScrollAnimation } from "../../../Manipulator2D/datas";
+import { ScrollAnimation, sectionDatas } from "../../../Manipulator2D/datas";
+import { checkScrollBoundary } from "../../../utils/devOnly";
 
 const introIpad: ScrollAnimation = {
   id: "intro-ipad",
@@ -42,7 +43,13 @@ const introThefirst: ScrollAnimation = {
   ],
 };
 
-Manipulator2D.getInstance().addScrollAnimationElement([introIpad, introThefirst]);
+const scrollAnimations = [introIpad, introThefirst];
+
+if (import.meta.env.DEV) {
+  checkScrollBoundary(sectionDatas[0], scrollAnimations);
+}
+
+Manipulator2D.getInstance().addScrollAnimationElement(scrollAnimations);
 
 function createPhaseTwo() {
   return html`<div class="absolute inset-0">

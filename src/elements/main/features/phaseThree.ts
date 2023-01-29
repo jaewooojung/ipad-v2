@@ -1,7 +1,8 @@
 import { html } from "lit";
 
 import Manipulator2D from "../../../Manipulator2D";
-import { ScrollAnimation } from "../../../Manipulator2D/datas";
+import { ScrollAnimation, sectionDatas } from "../../../Manipulator2D/datas";
+import { checkScrollBoundary } from "../../../utils/devOnly";
 
 const featuresAsimplebluetooth: ScrollAnimation = {
   id: "features-asimplebluetooth",
@@ -24,7 +25,13 @@ const featuresAsimplebluetooth: ScrollAnimation = {
   ],
 };
 
-Manipulator2D.getInstance().addScrollAnimationElement([featuresAsimplebluetooth]);
+const scrollAnimations = [featuresAsimplebluetooth];
+
+if (import.meta.env.DEV) {
+  checkScrollBoundary(sectionDatas[1], scrollAnimations);
+}
+
+Manipulator2D.getInstance().addScrollAnimationElement(scrollAnimations);
 
 function createPhaseThree() {
   return html`<div class="absolute inset-0">

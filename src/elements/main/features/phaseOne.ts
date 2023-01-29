@@ -1,7 +1,8 @@
 import { html } from "lit";
 
 import Manipulator2D from "../../../Manipulator2D";
-import { ScrollAnimation } from "../../../Manipulator2D/datas";
+import { ScrollAnimation, sectionDatas } from "../../../Manipulator2D/datas";
+import { checkScrollBoundary } from "../../../utils/devOnly";
 
 const featuresDotimage: ScrollAnimation = {
   id: "features-dotimage",
@@ -45,7 +46,13 @@ const featuresVisualinput: ScrollAnimation = {
   ],
 };
 
-Manipulator2D.getInstance().addScrollAnimationElement([featuresDotimage, featuresVisualinput]);
+const scrollAnimations = [featuresDotimage, featuresVisualinput];
+
+if (import.meta.env.DEV) {
+  checkScrollBoundary(sectionDatas[1], scrollAnimations);
+}
+
+Manipulator2D.getInstance().addScrollAnimationElement(scrollAnimations);
 
 function createPhaseOne() {
   return html`<div class="absolute inset-0">

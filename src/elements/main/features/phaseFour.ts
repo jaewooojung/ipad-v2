@@ -1,7 +1,8 @@
 import { html } from "lit";
 
 import Manipulator2D from "../../../Manipulator2D";
-import { ScrollAnimation } from "../../../Manipulator2D/datas";
+import { ScrollAnimation, sectionDatas } from "../../../Manipulator2D/datas";
+import { checkScrollBoundary } from "../../../utils/devOnly";
 
 const featuresGamechanging: ScrollAnimation = {
   id: "features-gamechanging",
@@ -43,11 +44,13 @@ const featuresDotactuator: ScrollAnimation = {
   ],
 };
 
-Manipulator2D.getInstance().addScrollAnimationElement([
-  featuresGamechanging,
-  featuresBlackcurtain,
-  featuresDotactuator,
-]);
+const scrollAnimations = [featuresGamechanging, featuresBlackcurtain, featuresDotactuator];
+
+if (import.meta.env.DEV) {
+  checkScrollBoundary(sectionDatas[1], scrollAnimations);
+}
+
+Manipulator2D.getInstance().addScrollAnimationElement(scrollAnimations);
 
 function createBox(title: string, desc: string) {
   const box = html`<div class="mr-7 w-5/6 sm:w-1/5 shrink-0">

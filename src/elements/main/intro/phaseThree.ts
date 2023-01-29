@@ -1,7 +1,8 @@
 import { html } from "lit";
 
 import Manipulator2D from "../../../Manipulator2D";
-import { ScrollAnimation } from "../../../Manipulator2D/datas";
+import { ScrollAnimation, sectionDatas } from "../../../Manipulator2D/datas";
+import { checkScrollBoundary } from "../../../utils/devOnly";
 
 const introAccess: ScrollAnimation = {
   id: "intro-access",
@@ -15,7 +16,7 @@ const introAccess: ScrollAnimation = {
       ],
     },
     {
-      scrollBoundary: [0.17, 0.19],
+      scrollBoundary: [0.17, 0.18],
       values: [
         { name: "opacity", from: 1, to: 0 },
         { name: "translateY", from: 0, to: -10 },
@@ -35,7 +36,7 @@ const introCreationMobilityCamera: ScrollAnimation = {
       ],
     },
     {
-      scrollBoundary: [0.17, 0.19],
+      scrollBoundary: [0.17, 0.18],
       values: [
         { name: "opacity", from: 1, to: 0 },
         { name: "translateY", from: 0, to: -10 },
@@ -44,7 +45,13 @@ const introCreationMobilityCamera: ScrollAnimation = {
   ],
 };
 
-Manipulator2D.getInstance().addScrollAnimationElement([introAccess, introCreationMobilityCamera]);
+const scrollAnimations = [introAccess, introCreationMobilityCamera];
+
+if (import.meta.env.DEV) {
+  checkScrollBoundary(sectionDatas[0], scrollAnimations);
+}
+
+Manipulator2D.getInstance().addScrollAnimationElement(scrollAnimations);
 
 function createBox(title: string, desc: string) {
   const box = html`<div class="flex-1 overflow-auto">
