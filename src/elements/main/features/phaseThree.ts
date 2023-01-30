@@ -36,8 +36,8 @@ Manipulator2D.getInstance().addScrollAnimationElement(scrollAnimations);
 function createPhaseThree() {
   return html`<div class="absolute inset-0">
     <div id=${featuresAsimplebluetooth.id} class="opacity-0 w-full h-full flex justify-center items-center">
-      <div class="w-full text-center sm:w-1/2">
-        <span class="text-2xl sm:text-7xl sm:leading-relaxed">
+      <div class="w-full text-center lg:w-1/2">
+        <span class="text-3xl lg:text-4xl 2xl:text-6xl lg:leading-relaxed">
           A simple bluetooth connection and boom. The App Store at your desk — the same 2.2 million apps, now accessible
           like never before.</span
         >

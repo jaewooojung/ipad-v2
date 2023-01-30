@@ -56,16 +56,16 @@ Manipulator2D.getInstance().addScrollAnimationElement(scrollAnimations);
 
 function createPhaseOne() {
   return html`<div class="absolute inset-0">
-    <div class="w-full h-full flex items-end sm:items-center">
-      <div id=${featuresDotimage.id} class="opacity-0 mb-20 sm:w-2/3 sm:mb-0">
-        <div class="mb-5 sm:mb-10"><span class="sm:text-4xl">Dot Image Processor</span></div>
-        <div class="sm:text-6xl">
+    <div class="w-full h-full flex items-end lg:items-center">
+      <div id=${featuresDotimage.id} class="opacity-0 mb-20 lg:w-2/3 lg:mb-0">
+        <div class="mb-5 lg:mb-10"><span class="text-2xl lg:text-3xl 2xl:text-4xl">Dot Image Processor</span></div>
+        <div class="text-3xl lg:text-4xl 2xl:text-6xl">
           The innovative processor uses AI to analyze and segment images to produce tactile graphics best suited for
           visually impaired users.
         </div>
       </div>
-      <div id=${featuresVisualinput.id} class="opacity-0 absolute bottom-3/4 sm:bottom-10">
-        <span class="sm:text-2xl font-bold tracking-tighter">
+      <div id=${featuresVisualinput.id} class="opacity-0 absolute bottom-3/4 lg:bottom-10">
+        <span class="text-xl font-bold tracking-tighter lg:text-2xl 2xl:text-3xl">
           Visual Input → Content Detection → Semantic Rendering → Tactile mapping</span
         >
       </div>

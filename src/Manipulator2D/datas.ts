@@ -28,7 +28,7 @@ export type ScrollAnimationElement = ScrollAnimation & DynamicFunctions;
 
 // Developer can initialize the Dom size below.
 
-export const sectionSizeMultiplier = 5000;
+export const total_vh = 5000;
 
 export const sectionDatas: Array<SectionData> = [
   {

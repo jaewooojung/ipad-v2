@@ -13,14 +13,14 @@ import { throttle } from "throttle-debounce";
 
 import createRoot from "./elements/root";
 
-createRoot();
-
 // Three
 const ipad3D = document.getElementById("ipad-3D") as HTMLDivElement;
 const threeApp = new ThreeApp(ipad3D);
 threeApp.load();
 
-// Manipulator2D
+// 2D
+createRoot();
+
 const manipulator2D = Manipulator2D.getInstance();
 
 // Scroll
@@ -33,7 +33,9 @@ document.body.addEventListener("scroll", throttle(32, onScroll));
 
 // Resize
 function onResize() {
-  // manipulator2D.onResize();
+  const newWidth = document.body.clientWidth;
+  manipulator2D.onResize(newWidth);
+  // currently Not nesessary. because the scroll behavior depends on the body element which is adaptable to resizing
 }
 
 window.addEventListener("resize", onResize);

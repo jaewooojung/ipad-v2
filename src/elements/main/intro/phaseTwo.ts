@@ -54,8 +54,8 @@ Manipulator2D.getInstance().addScrollAnimationElement(scrollAnimations);
 function createPhaseTwo() {
   return html`<div class="absolute inset-0">
     <div class="w-full h-full flex flex-col justify-center items-center text-center leading-normal">
-      <div id=${introIpad.id} class="opacity-0 text-5xl sm:text-9xl">i - Pad</div>
-      <div id=${introThefirst.id} class="opacity-0 text-2xl sm:text-3xl">
+      <div id=${introIpad.id} class="opacity-0 text-5xl lg:text-7xl 2xl:text-9xl">i - Pad</div>
+      <div id=${introThefirst.id} class="opacity-0 text-xl lg-text-2xl 2xl:text-3xl">
         The first smart tactile graphics display for the visually impaired.
       </div>
     </div>

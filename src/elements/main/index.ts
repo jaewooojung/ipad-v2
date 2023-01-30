@@ -10,9 +10,9 @@ import DomDatas from "../../Manipulator2D";
 function createMain() {
   const domDats = DomDatas.getInstance();
   const sectionDatas = domDats.getSectionDatas();
-  const sectionSizeMultiplier = domDats.getSectionSizeMultiplier();
+  const total_vh = domDats.gettotal_vh();
 
-  const height_vh_arr = sectionDatas.map((sd) => (sd.scrollBoundary[1] - sd.scrollBoundary[0]) * sectionSizeMultiplier);
+  const height_vh_arr = sectionDatas.map((sd) => Math.round((sd.scrollBoundary[1] - sd.scrollBoundary[0]) * total_vh));
 
   const intro = createIntro(height_vh_arr[0]);
   const features = createFeatures(height_vh_arr[1]);

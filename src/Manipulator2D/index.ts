@@ -1,15 +1,16 @@
-import { handleScrollHeader, handleScrollMain } from "./scrollHandler";
-import { SectionData, ScrollAnimation, ScrollAnimationElement, sectionDatas, sectionSizeMultiplier } from "./datas";
+import { handleScrollMain } from "./scrollHandler";
+import { SectionData, ScrollAnimation, ScrollAnimationElement, sectionDatas, total_vh } from "./datas";
 import { injectScrollMethodToElement } from "./manipulator";
+import { getFeaturesDotactuator } from "./responsiveData";
 
 class Manipulator2D {
   private static instance: Manipulator2D;
-  private sectionSizeMultiplier: number;
+  private total_vh: number;
   private sectionDatas: Array<SectionData>;
   private scrollAnimationElements: Array<ScrollAnimationElement>;
 
   private constructor() {
-    this.sectionSizeMultiplier = sectionSizeMultiplier;
+    this.total_vh = total_vh;
     this.sectionDatas = sectionDatas;
     this.scrollAnimationElements = [];
   }
@@ -21,7 +22,7 @@ class Manipulator2D {
     return Manipulator2D.instance;
   }
 
-  getSectionSizeMultiplier = () => this.sectionSizeMultiplier;
+  gettotal_vh = () => this.total_vh;
   getSectionDatas = () => this.sectionDatas;
 
   addScrollAnimationElement = (scrollAnimations: Array<ScrollAnimation>) => {
@@ -31,11 +32,28 @@ class Manipulator2D {
   };
 
   onScroll = (scrY0to1: number) => {
-    handleScrollHeader(scrY0to1, this.sectionDatas);
+    // handleScrollHeader(scrY0to1, this.sectionDatas);
     handleScrollMain(scrY0to1, this.scrollAnimationElements);
   };
 
-  onResize = () => {};
+  onResize = (newWidth: number) => {
+    // header-link-contact
+
+    // features-dotactuator
+    const targetIndex = this.scrollAnimationElements.findIndex((sae) => sae.id === "features-dotactuator");
+    const newTarget = injectScrollMethodToElement(getFeaturesDotactuator(newWidth));
+    this.scrollAnimationElements = [
+      ...this.scrollAnimationElements.slice(0, targetIndex),
+      newTarget,
+      ...this.scrollAnimationElements.slice(targetIndex + 1),
+    ];
+    // const newTarget = { ...target, ...getFeaturesDotactuator(newWidth) };
+    // this.scrollAnimationElements = [
+    //   ...this.scrollAnimationElements.slice(0, targetIndex),
+    //   newTarget,
+    //   ...this.scrollAnimationElements.slice(targetIndex + 1),
+    // ];
+  };
 }
 
 export default Manipulator2D;

@@ -4,6 +4,14 @@ module.exports = {
   content: ["./src/**/*.{html,js,ts}"],
   theme: {
     extend: {
+      spacing: {
+        "header-height": "48px",
+        "header-height-lg": "96px",
+      },
+      height: {
+        header: "48px",
+        "header-lg": "96px",
+      },
       fontSize: {
         "10xl": "12rem",
       },

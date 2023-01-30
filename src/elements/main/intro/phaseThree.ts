@@ -16,7 +16,7 @@ const introAccess: ScrollAnimation = {
       ],
     },
     {
-      scrollBoundary: [0.17, 0.18],
+      scrollBoundary: [0.17, 0.175],
       values: [
         { name: "opacity", from: 1, to: 0 },
         { name: "translateY", from: 0, to: -10 },
@@ -24,6 +24,7 @@ const introAccess: ScrollAnimation = {
     },
   ],
 };
+
 const introCreationMobilityCamera: ScrollAnimation = {
   id: "intro-creation-mobility-camera",
 
@@ -36,7 +37,7 @@ const introCreationMobilityCamera: ScrollAnimation = {
       ],
     },
     {
-      scrollBoundary: [0.17, 0.18],
+      scrollBoundary: [0.17, 0.175],
       values: [
         { name: "opacity", from: 1, to: 0 },
         { name: "translateY", from: 0, to: -10 },
@@ -54,25 +55,22 @@ if (import.meta.env.DEV) {
 Manipulator2D.getInstance().addScrollAnimationElement(scrollAnimations);
 
 function createBox(title: string, desc: string) {
-  const box = html`<div class="flex-1 overflow-auto">
-    <div class="sm:mb-4"><span class="text-lg sm:text-4xl">${title}</span></div>
-    <div class="text-sm sm:text-2xl">${desc}</div>
+  const box = html`<div class="flex-1">
+    <div class="lg:mb-4"><span class="text-lg lg:text-xl 2xl:text-4xl">${title}</span></div>
+    <div class="text-sm lg:text-lg 2xl:text-2xl">${desc}</div>
   </div>`;
   return box;
 }
 
 function createPhaseThree() {
   return html`<div class="absolute inset-0">
-    <div class="w-full h-full grid grid-rows-4 grid-cols-1 font-bold sm:grid-rows-3 sm:grid-cols-4 sm:gap-8">
-      <div
-        id="${introAccess.id}"
-        class="opacity-0 row-start-1 row-end-2 self-center text-3xl sm:col-start-1 sm:col-end-5 sm:text-7xl"
-      >
+    <div class="w-full h-full pt-header-height lg:pt-header-height-lg flex flex-col">
+      <div id="${introAccess.id}" class="opacity-0 flex-[1] lg:flex-[3] 2xl:flex-[6] text-3xl lg:text-5xl 2xl:text-7xl">
         Access visual content from any source.
       </div>
       <div
         id=${introCreationMobilityCamera.id}
-        class="opacity-0 row-start-2 row-end-5 sm:row-start-3 sm:row-end-4 sm:col-start-1 sm:col-end-4 flex flex-col sm:flex-row sm:justify-between sm:gap-10"
+        class="opacity-0 flex-[3] flex flex-col lg:flex-row lg:gap-9 2xl:items-center"
       >
         ${createBox(
           "Creation",

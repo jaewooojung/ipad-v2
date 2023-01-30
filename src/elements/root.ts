@@ -7,8 +7,8 @@ import createMain from "./main";
 function Root() {
   const header = createHeader();
   const main = createMain();
-  const footer = createFooter();
-  const root = html`<div id="root" class="px-4 sm:px-10">${header}${main}${footer}</div>`;
+  // const footer = createFooter();
+  const root = html`<div id="root" class="px-4 lg:px-10">${header}${main}</div>`;
   render(root, document.body);
 }
 

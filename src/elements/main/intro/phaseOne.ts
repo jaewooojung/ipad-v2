@@ -38,10 +38,10 @@ Manipulator2D.getInstance().addScrollAnimationElement([introBeyondWords, introMo
 function createPhaseOne() {
   return html`<div class="absolute inset-0">
     <div class="w-full h-full flex justify-center items-center">
-      <div id="${introBeyondWords.id}" class="text-6xl text-center sm:text-10xl">
+      <div id="${introBeyondWords.id}" class="text-center text-6xl lg:text-8xl 2xl:text-10xl">
         <div class="mb-10">
           <span class="bg-clip-text bg-cover bg-gradient-to-b from-white via-white to-gray-900 text-transparent"
-            ><simple-greeting>Beyond</simple-greeting></span
+            >Beyond</span
           >
         </div>
         <div>Words</div>

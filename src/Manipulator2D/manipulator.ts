@@ -8,8 +8,14 @@ function manipulateDirectly(dom: HTMLElement, name: string, value: number) {
     dom.style.transform = `translateY(${value}px)`;
   } else if (name === "scale") {
     dom.style.transform = `scale(${value})`;
+  } else if (name === "scaleX") {
+    dom.style.transform = `scaleX(${value})`;
   } else if (name === "translateX") {
     dom.style.transform = `translateX(${value}px)`;
+  } else if (name === "translateXPercent") {
+    dom.style.transform = `translateX(${value}%)`;
+  } else if (name === "translateYPercent") {
+    dom.style.transform = `translateY(${value}%)`;
   }
 }
 

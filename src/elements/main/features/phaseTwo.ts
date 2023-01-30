@@ -35,12 +35,12 @@ Manipulator2D.getInstance().addScrollAnimationElement(scrollAnimations);
 
 function createPhaseTwo() {
   return html`<div class="absolute inset-0">
-    <div class="w-full h-full flex items-end sm:justify-end sm:items-center">
-      <div id=${featuresInteract.id} class="opacity-0 mb-20 sm:mb-0 sm:w-1/2">
-        <div class="mb-5 sm:mb-10">
-          <span class="sm:text-4xl">Interact with the graphics and explore every detail.</span>
+    <div class="w-full h-full flex items-end lg:justify-end lg:items-center">
+      <div id=${featuresInteract.id} class="opacity-0 mb-20 lg:mb-0 lg:w-1/2">
+        <div class="mb-5 lg:mb-10">
+          <span class="text-2xl lg:text-3xl 2xl:text-4xl">Interact with the graphics and explore every detail.</span>
         </div>
-        <div class="sm:text-6xl">
+        <div class="text-3xl lg:text-4xl 2xl:text-6xl">
           Simple intuitive controls along with a text-to-braille panel built-in for your comfort.
         </div>
       </div>
