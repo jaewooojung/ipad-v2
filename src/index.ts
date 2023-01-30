@@ -35,6 +35,7 @@ document.body.addEventListener("scroll", throttle(32, onScroll));
 function onResize() {
   const newWidth = document.body.clientWidth;
   manipulator2D.onResize(newWidth);
+  threeApp.onResize();
   // currently Not nesessary. because the scroll behavior depends on the body element which is adaptable to resizing
 }
 

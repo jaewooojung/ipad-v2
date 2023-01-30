@@ -1,4 +1,4 @@
-import { handleScrollMain } from "./scrollHandler";
+import handleScroll from "./scrollHandler";
 import { SectionData, ScrollAnimation, ScrollAnimationElement, sectionDatas, total_vh } from "./datas";
 import { injectScrollMethodToElement } from "./manipulator";
 import { getFeaturesDotactuator } from "./responsiveData";
@@ -32,13 +32,10 @@ class Manipulator2D {
   };
 
   onScroll = (scrY0to1: number) => {
-    // handleScrollHeader(scrY0to1, this.sectionDatas);
-    handleScrollMain(scrY0to1, this.scrollAnimationElements);
+    handleScroll(scrY0to1, this.scrollAnimationElements);
   };
 
   onResize = (newWidth: number) => {
-    // header-link-contact
-
     // features-dotactuator
     const targetIndex = this.scrollAnimationElements.findIndex((sae) => sae.id === "features-dotactuator");
     const newTarget = injectScrollMethodToElement(getFeaturesDotactuator(newWidth));
@@ -47,12 +44,6 @@ class Manipulator2D {
       newTarget,
       ...this.scrollAnimationElements.slice(targetIndex + 1),
     ];
-    // const newTarget = { ...target, ...getFeaturesDotactuator(newWidth) };
-    // this.scrollAnimationElements = [
-    //   ...this.scrollAnimationElements.slice(0, targetIndex),
-    //   newTarget,
-    //   ...this.scrollAnimationElements.slice(targetIndex + 1),
-    // ];
   };
 }
 

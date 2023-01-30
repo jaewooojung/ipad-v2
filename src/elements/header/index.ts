@@ -72,23 +72,23 @@ function createNavLink(id: string, name: string) {
 }
 
 function createHeader() {
-  const header = html`<header
-    class="fixed top-0 left-0 z-10 w-full h-header-height p-4 flex justify-between items-center bg-transparent lg:mr-10 lg:p-10 lg:h-header-height-lg"
-  >
-    <div><span class="text-3xl lg:text-5xl">iPad</span></div>
-    <nav>
-      <div id="mobile-hamburgur" class="block lg:hidden">
-        <button class="w-5 h-5 flex flex-col justify-between bg-transparent">
-          <div class="w-full h-[2px] bg-white"></div>
-          <div class="w-full h-[2px] bg-white"></div>
-          <div class="w-full h-[2px] bg-white"></div>
-        </button>
-      </div>
-      <ul class="hidden lg:flex lg:gap-5">
-        ${createNavLink(headerLinkIntro.id, "Ipad")} ${createNavLink(headerLinkFeatures.id, "Features")}
-        ${createNavLink(headerLinkUseCases.id, "Use cases")} ${createNavLink(headerLinkContact.id, "Contact")}
-      </ul>
-    </nav>
+  const header = html`<header class="fixed top-0 left-0 z-10 w-full lg:pr-10">
+    <div class="p-4 h-header-height flex justify-between items-center bg-black lg:p-10 lg:h-header-height-lg">
+      <div><span class="text-3xl lg:text-5xl">iPad</span></div>
+      <nav>
+        <div id="mobile-hamburgur" class="block lg:hidden">
+          <button class="w-5 h-5 flex flex-col justify-between bg-transparent">
+            <div class="w-full h-[2px] bg-white"></div>
+            <div class="w-full h-[2px] bg-white"></div>
+            <div class="w-full h-[2px] bg-white"></div>
+          </button>
+        </div>
+        <ul class="hidden lg:flex lg:gap-5">
+          ${createNavLink(headerLinkIntro.id, "Ipad")} ${createNavLink(headerLinkFeatures.id, "Features")}
+          ${createNavLink(headerLinkUseCases.id, "Use cases")} ${createNavLink(headerLinkContact.id, "Contact")}
+        </ul>
+      </nav>
+    </div>
   </header>`;
   return header;
 }

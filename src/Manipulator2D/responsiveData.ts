@@ -1,4 +1,4 @@
-import { ScrollAnimation, KeyframeType } from "./datas";
+import { ScrollAnimation } from "./datas";
 
 export function getFeaturesDotactuator(newWidth: number): ScrollAnimation {
   return {

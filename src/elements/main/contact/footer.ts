@@ -1,7 +1,7 @@
 import { html } from "lit";
 
 function createFooter() {
-  const footer = html`<footer>footer</footer>`;
+  const footer = html`<footer class="w-full"></footer>`;
   return footer;
 }
 
