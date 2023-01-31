@@ -30,6 +30,11 @@ function manipulateLinearly(
   manipulateDirectly(dom, name, y);
 }
 
+/**
+ * preprocessing
+ * Element object마다 미리 스크롤 애니메이션을 정의해놓고
+ * scroll이 boundary안에 들어오면 바로 실행한다.
+ */
 function injectScrollMethodToElement(scrollAnimation: ScrollAnimation): ScrollAnimationElement {
   const funcObj: DynamicFunctions = {};
   for (let i = 0; i < scrollAnimation.animations.length; i++) {

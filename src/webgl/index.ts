@@ -1,5 +1,6 @@
 import { AmbientLight, Group, Scene } from "three";
-import getIpad from "./ipad";
+import { ScrollAnimationElement } from "../Manipulator2D/datas";
+import { handleScrollIpad, initIpad } from "./objects/ipad";
 import MainCamera from "./systems/MainCamera";
 import Renderer from "./systems/Renderer";
 import { createScene } from "./systems/scene";
@@ -11,6 +12,7 @@ class ThreeApp {
   private mainCamera: MainCamera;
   private renderer: Renderer;
   private ipad: Group;
+  private ipadSAE: ScrollAnimationElement | null;
 
   constructor(container: HTMLDivElement) {
     this.scene = createScene();
@@ -19,6 +21,7 @@ class ThreeApp {
     this.scene.add(this.mainCamera.getCamera());
     this.renderer = new Renderer(this.scene, this.mainCamera.getCamera());
     this.ipad = new Group();
+    this.ipadSAE = null;
     const canvas = this.renderer.getRenderer().domElement;
     container.append(canvas);
 
@@ -32,8 +35,13 @@ class ThreeApp {
     const { width, height, pixelRatio } = this.sizes.onResize();
     this.mainCamera.onResize(width, height);
     this.renderer.onResize(width, height, pixelRatio);
-    const multiplier = this.sizes.getSizes().width < 640 ? 0.06 : width < 1024 ? 0.09 : 0.13;
-    this.ipad.scale.set(multiplier, multiplier, multiplier);
+    this.render();
+  };
+
+  onScroll = (scrY0to1: number) => {
+    if (this.ipad && this.ipadSAE) {
+      handleScrollIpad(scrY0to1, this.ipadSAE, this.ipad);
+    }
     this.render();
   };
 
@@ -42,9 +50,12 @@ class ThreeApp {
   };
 
   load = async () => {
-    const gltf = await getIpad();
-    this.ipad.add(gltf);
+    const { temp: ipadScene, scrollAnimationElement: ipadSAE } = await initIpad();
+    this.ipad.add(ipadScene);
+    this.ipadSAE = ipadSAE;
+
     this.scene.add(this.ipad);
+
     this.render();
   };
 }

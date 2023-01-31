@@ -16,7 +16,7 @@ function createBox(title: string, desc: string, linkText: string, linkSrc: strin
 
 function createContact(height_vh: number) {
   const contact = html`<section id="contact" class="relative" style="height:${height_vh}vh">
-    <div class="mt-40 mb-10 lg:mb-40">
+    <div class="">
       <h1 class="text-3xl lg:text-5xl 2xl:text-8xl leading-loose">
         Feel the difference.<br />
         Make a difference.

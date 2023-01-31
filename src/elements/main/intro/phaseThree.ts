@@ -55,7 +55,7 @@ if (import.meta.env.DEV) {
 Manipulator2D.getInstance().addScrollAnimationElement(scrollAnimations);
 
 function createBox(title: string, desc: string) {
-  const box = html`<div class="flex-1">
+  const box = html`<div class="flex-1 mb-4">
     <div class="lg:mb-4"><span class="text-lg lg:text-xl 2xl:text-4xl">${title}</span></div>
     <div class="text-sm lg:text-lg 2xl:text-2xl">${desc}</div>
   </div>`;
@@ -63,14 +63,14 @@ function createBox(title: string, desc: string) {
 }
 
 function createPhaseThree() {
-  return html`<div class="absolute inset-0">
+  return html`<div class="absolute inset-0 py-10">
     <div class="w-full h-full pt-header-height lg:pt-header-height-lg flex flex-col">
       <div id="${introAccess.id}" class="opacity-0 flex-[1] lg:flex-[3] 2xl:flex-[6] text-3xl lg:text-5xl 2xl:text-7xl">
         Access visual content from any source.
       </div>
       <div
         id=${introCreationMobilityCamera.id}
-        class="opacity-0 flex-[3] flex flex-col lg:flex-row lg:gap-9 2xl:items-center"
+        class="opacity-0 flex-[3] flex flex-col lg:flex-row lg:items-center lg:gap-9"
       >
         ${createBox(
           "Creation",
