@@ -1,59 +1,60 @@
 import { html } from "lit";
 
 import Manipulator2D from "../../Manipulator2D";
-import { ScrollAnimation, sectionDatas, total_vh } from "../../Manipulator2D/datas";
+import { ScrollAnimationElement } from "../../Manipulator2D/types";
+import { sectionDatas, total_vh } from "../sectiondatas";
 
-const headerLinkIntro: ScrollAnimation = {
-  id: "header-link-intro",
-  animations: [
+const headerLinkIntro: ScrollAnimationElement = {
+  elementId: "header-link-intro",
+  scrollAnimations: [
     {
       scrollBoundary: [sectionDatas[0].scrollBoundary[0], sectionDatas[0].scrollBoundary[1]],
-      values: [{ name: "scaleX", from: 0, to: 1 }],
+      keyframes: [{ name: "scaleX", from: 0, to: 1 }],
     },
     {
       scrollBoundary: [sectionDatas[0].scrollBoundary[1], sectionDatas[0].scrollBoundary[1]],
-      values: [{ name: "scaleX", from: 1, to: 0 }],
+      keyframes: [{ name: "scaleX", from: 1, to: 0 }],
     },
   ],
 };
 
-const headerLinkFeatures: ScrollAnimation = {
-  id: "header-link-features",
-  animations: [
+const headerLinkFeatures: ScrollAnimationElement = {
+  elementId: "header-link-features",
+  scrollAnimations: [
     {
       scrollBoundary: [sectionDatas[1].scrollBoundary[0], sectionDatas[1].scrollBoundary[1]],
-      values: [{ name: "scaleX", from: 0, to: 1 }],
+      keyframes: [{ name: "scaleX", from: 0, to: 1 }],
     },
     {
       scrollBoundary: [sectionDatas[1].scrollBoundary[1], sectionDatas[1].scrollBoundary[1]],
-      values: [{ name: "scaleX", from: 1, to: 0 }],
+      keyframes: [{ name: "scaleX", from: 1, to: 0 }],
     },
   ],
 };
 
-const headerLinkUseCases: ScrollAnimation = {
-  id: "header-link-useCases",
-  animations: [
+const headerLinkUseCases: ScrollAnimationElement = {
+  elementId: "header-link-useCases",
+  scrollAnimations: [
     {
       scrollBoundary: [sectionDatas[2].scrollBoundary[0], sectionDatas[2].scrollBoundary[1]],
-      values: [{ name: "scaleX", from: 0, to: 1 }],
+      keyframes: [{ name: "scaleX", from: 0, to: 1 }],
     },
     {
       scrollBoundary: [sectionDatas[2].scrollBoundary[1], sectionDatas[2].scrollBoundary[1]],
-      values: [{ name: "scaleX", from: 1, to: 0 }],
+      keyframes: [{ name: "scaleX", from: 1, to: 0 }],
     },
   ],
 };
 
-const headerLinkContact: ScrollAnimation = {
-  id: "header-link-contact",
-  animations: [
+const headerLinkContact: ScrollAnimationElement = {
+  elementId: "header-link-contact",
+  scrollAnimations: [
     {
       scrollBoundary: [
         sectionDatas[3].scrollBoundary[0],
         sectionDatas[3].scrollBoundary[1] * ((total_vh - 100) / total_vh),
       ],
-      values: [{ name: "scaleX", from: 0, to: 1 }],
+      keyframes: [{ name: "scaleX", from: 0, to: 1 }],
     },
   ],
 };
@@ -84,8 +85,9 @@ function createHeader() {
           </button>
         </div>
         <ul class="hidden lg:flex lg:gap-5">
-          ${createNavLink(headerLinkIntro.id, "Ipad")} ${createNavLink(headerLinkFeatures.id, "Features")}
-          ${createNavLink(headerLinkUseCases.id, "Use cases")} ${createNavLink(headerLinkContact.id, "Contact")}
+          ${createNavLink(headerLinkIntro.elementId, "Ipad")} ${createNavLink(headerLinkFeatures.elementId, "Features")}
+          ${createNavLink(headerLinkUseCases.elementId, "Use cases")}
+          ${createNavLink(headerLinkContact.elementId, "Contact")}
         </ul>
       </nav>
     </div>

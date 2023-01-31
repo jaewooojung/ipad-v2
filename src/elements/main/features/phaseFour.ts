@@ -1,48 +1,49 @@
 import { html } from "lit";
 
 import Manipulator2D from "../../../Manipulator2D";
-import { ScrollAnimation, sectionDatas } from "../../../Manipulator2D/datas";
+import { ScrollAnimationElement } from "../../../Manipulator2D/types";
 import { checkScrollBoundary } from "../../../utils/devOnly";
 
 import { getFeaturesDotactuator } from "../../../Manipulator2D/responsiveData";
+import { sectionDatas } from "../../sectiondatas";
 
-const featuresGamechanging: ScrollAnimation = {
-  id: "features-gamechanging",
-  animations: [
+const featuresGamechanging: ScrollAnimationElement = {
+  elementId: "features-gamechanging",
+  scrollAnimations: [
     {
       scrollBoundary: [0.49, 0.51],
-      values: [{ name: "opacity", from: 0, to: 1 }],
+      keyframes: [{ name: "opacity", from: 0, to: 1 }],
     },
     {
       scrollBoundary: [0.53, 0.55],
-      values: [{ name: "opacity", from: 1, to: 0 }],
+      keyframes: [{ name: "opacity", from: 1, to: 0 }],
     },
   ],
 };
 
-const featuresBlackcurtain: ScrollAnimation = {
-  id: "features-black-curtain",
-  animations: [
+const featuresBlackcurtain: ScrollAnimationElement = {
+  elementId: "features-black-curtain",
+  scrollAnimations: [
     {
       scrollBoundary: [0.49, 0.49001],
-      values: [{ name: "opacity", from: 0, to: 1 }],
+      keyframes: [{ name: "opacity", from: 0, to: 1 }],
     },
     {
       scrollBoundary: [0.54999, 0.55],
-      values: [{ name: "opacity", from: 1, to: 0 }],
+      keyframes: [{ name: "opacity", from: 1, to: 0 }],
     },
   ],
 };
 
 const featuresDotactuator = getFeaturesDotactuator(document.body.clientWidth);
 
-const scrollAnimations = [featuresGamechanging, featuresBlackcurtain, featuresDotactuator];
+const scrollAnimationElements = [featuresGamechanging, featuresBlackcurtain, featuresDotactuator];
 
 if (import.meta.env.DEV) {
-  checkScrollBoundary(sectionDatas[1], scrollAnimations);
+  checkScrollBoundary(sectionDatas[1], scrollAnimationElements);
 }
 
-Manipulator2D.getInstance().addScrollAnimationElement(scrollAnimations);
+Manipulator2D.getInstance().addScrollAnimationElement(scrollAnimationElements);
 
 function createBox(title: string, desc: string) {
   const box = html`<div class="mr-7 w-5/6 lg:w-1/5 shrink-0">
@@ -56,18 +57,18 @@ function createPhaseFour() {
   return html`<div class="absolute inset-0">
     <div class="w-full h-full px-5 py-24 flex flex-col justify-between overflow-hidden lg:py-48">
       <div class="flex-[3] flex lg:justify-end">
-        <div id=${featuresGamechanging.id} class="opacity-0 w-full lg:w-1/2">
+        <div id=${featuresGamechanging.elementId} class="opacity-0 w-full lg:w-1/2">
           <span class="text-3xl font-bold leading-normal xl:text-5xl 2xl:text-7xl"
             >Game-changing features that fit in your backpack.</span
           >
         </div>
       </div>
       <div
-        id=${featuresBlackcurtain.id}
+        id=${featuresBlackcurtain.elementId}
         class="z-10 hidden absolute top-0 left-0 bottom-0 w-1/2 lg:block"
         style="background: linear-gradient(to right, black 30%, transparent)"
       ></div>
-      <div id=${featuresDotactuator.id} class="flex-[2] w-full flex translate-x-full lg:pt-24">
+      <div id=${featuresDotactuator.elementId} class="flex-[2] w-full flex translate-x-full lg:pt-24">
         ${createBox("Dot Actuator 3.0", "Patented actuator technology based on electromagnetism.")}
         ${createBox("iOS & iPadOS Integration", "Works seamlessly with iOS/iPad OS 15.2 and higher.")}
         ${createBox("Dot Image Processor", "An AI based processor that renders the most meaningful tactile output.")}

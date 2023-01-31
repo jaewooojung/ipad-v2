@@ -1,20 +1,25 @@
-import { isBetween } from "../utils/common";
-import { ScrollAnimationElement } from "./datas";
+import { ScrollAnimationElement } from "./types";
+import { manipulateDirectly, manipulateLinearly } from "./manipulator";
 
 function handleScroll(scrY0to1: number, scrollAnimationElements: Array<ScrollAnimationElement>) {
   scrollAnimationElements.forEach((sae: ScrollAnimationElement) => {
-    const domEle = document.getElementById(sae.id) as HTMLElement;
-    const lastIndex = sae.animations.length - 1;
-    if (scrY0to1 > sae.animations[lastIndex].scrollBoundary[1]) {
-      sae[`a${lastIndex}-next`](domEle);
+    if (scrY0to1 > sae.scrollAnimations[sae.scrollAnimations.length - 1].scrollBoundary[1]) {
+      // 지나감
+      sae.scrollAnimations[sae.scrollAnimations.length - 1].keyframes.forEach((k) => {
+        manipulateDirectly(sae.elementId, k.name, k.to);
+      });
     } else {
-      for (let i = 0; i < sae.animations.length; i++) {
-        if (scrY0to1 < sae.animations[i].scrollBoundary[0]) {
-          sae[`a${i}-previous`](domEle);
+      // 도착전
+      for (const sa of sae.scrollAnimations) {
+        if (scrY0to1 < sa.scrollBoundary[0]) {
+          sa.keyframes.forEach((k) => {
+            manipulateDirectly(sae.elementId, k.name, k.from);
+          });
           break;
-        }
-        if (isBetween(scrY0to1, sae.animations[i].scrollBoundary[0], sae.animations[i].scrollBoundary[1])) {
-          sae[`a${i}`](domEle, scrY0to1);
+        } else if (scrY0to1 <= sa.scrollBoundary[1]) {
+          sa.keyframes.forEach((k) => {
+            manipulateLinearly(sae.elementId, scrY0to1, sa.scrollBoundary, k.name, k.from, k.to);
+          });
           break;
         }
       }

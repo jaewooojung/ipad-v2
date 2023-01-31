@@ -27,7 +27,7 @@ const manipulator2D = Manipulator2D.getInstance();
 function onScroll() {
   let scrY0to1 = document.body.scrollTop / document.body.scrollHeight;
   manipulator2D.onScroll(scrY0to1);
-  threeApp.onScroll(scrY0to1);
+  // threeApp.onScroll(scrY0to1);
 }
 
 document.body.addEventListener("scroll", throttle(32, onScroll));

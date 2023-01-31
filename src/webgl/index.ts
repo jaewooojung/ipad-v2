@@ -1,5 +1,5 @@
 import { AmbientLight, Group, Scene } from "three";
-import { ScrollAnimationElement } from "../Manipulator2D/datas";
+import { ScrollAnimationElement } from "../Manipulator2D/types";
 import { handleScrollIpad, initIpad } from "./objects/ipad";
 import MainCamera from "./systems/MainCamera";
 import Renderer from "./systems/Renderer";

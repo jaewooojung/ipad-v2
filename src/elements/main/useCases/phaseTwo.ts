@@ -1,22 +1,23 @@
 import { html } from "lit";
 
 import Manipulator2D from "../../../Manipulator2D";
-import { ScrollAnimation, sectionDatas } from "../../../Manipulator2D/datas";
+import { ScrollAnimationElement } from "../../../Manipulator2D/types";
 import { checkScrollBoundary } from "../../../utils/devOnly";
+import { sectionDatas } from "../../sectiondatas";
 
-const useCasesLearning: ScrollAnimation = {
-  id: "useCases-learning",
-  animations: [
+const useCasesLearning: ScrollAnimationElement = {
+  elementId: "useCases-learning",
+  scrollAnimations: [
     {
       scrollBoundary: [0.66, 0.67],
-      values: [
+      keyframes: [
         { name: "opacity", from: 0, to: 1 },
         { name: "translateY", from: 5, to: 0 },
       ],
     },
     {
       scrollBoundary: [0.68, 0.69],
-      values: [
+      keyframes: [
         { name: "opacity", from: 1, to: 0 },
         { name: "translateY", from: 0, to: -10 },
       ],
@@ -24,19 +25,19 @@ const useCasesLearning: ScrollAnimation = {
   ],
 };
 
-const useCasesWork: ScrollAnimation = {
-  id: "useCases-work",
-  animations: [
+const useCasesWork: ScrollAnimationElement = {
+  elementId: "useCases-work",
+  scrollAnimations: [
     {
       scrollBoundary: [0.7, 0.71],
-      values: [
+      keyframes: [
         { name: "opacity", from: 0, to: 1 },
         { name: "translateY", from: 5, to: 0 },
       ],
     },
     {
       scrollBoundary: [0.72, 0.73],
-      values: [
+      keyframes: [
         { name: "opacity", from: 1, to: 0 },
         { name: "translateY", from: 0, to: -10 },
       ],
@@ -44,19 +45,19 @@ const useCasesWork: ScrollAnimation = {
   ],
 };
 
-const useCaseCreativity: ScrollAnimation = {
-  id: "useCases-creativity",
-  animations: [
+const useCaseCreativity: ScrollAnimationElement = {
+  elementId: "useCases-creativity",
+  scrollAnimations: [
     {
       scrollBoundary: [0.74, 0.75],
-      values: [
+      keyframes: [
         { name: "opacity", from: 0, to: 1 },
         { name: "translateY", from: 5, to: 0 },
       ],
     },
     {
       scrollBoundary: [0.76, 0.77],
-      values: [
+      keyframes: [
         { name: "opacity", from: 1, to: 0 },
         { name: "translateY", from: 0, to: -10 },
       ],
@@ -64,19 +65,19 @@ const useCaseCreativity: ScrollAnimation = {
   ],
 };
 
-const useCaseEntertainment: ScrollAnimation = {
-  id: "useCases-entertainment",
-  animations: [
+const useCaseEntertainment: ScrollAnimationElement = {
+  elementId: "useCases-entertainment",
+  scrollAnimations: [
     {
       scrollBoundary: [0.78, 0.79],
-      values: [
+      keyframes: [
         { name: "opacity", from: 0, to: 1 },
         { name: "translateY", from: 5, to: 0 },
       ],
     },
     {
       scrollBoundary: [0.8, 0.81],
-      values: [
+      keyframes: [
         { name: "opacity", from: 1, to: 0 },
         { name: "translateY", from: 0, to: -10 },
       ],
@@ -84,13 +85,13 @@ const useCaseEntertainment: ScrollAnimation = {
   ],
 };
 
-const scrollAnimations = [useCasesLearning, useCasesWork, useCaseCreativity, useCaseEntertainment];
+const scrollAnimationElements = [useCasesLearning, useCasesWork, useCaseCreativity, useCaseEntertainment];
 
 if (import.meta.env.DEV) {
-  checkScrollBoundary(sectionDatas[2], scrollAnimations);
+  checkScrollBoundary(sectionDatas[2], scrollAnimationElements);
 }
 
-Manipulator2D.getInstance().addScrollAnimationElement(scrollAnimations);
+Manipulator2D.getInstance().addScrollAnimationElement(scrollAnimationElements);
 
 function createBox(id: string, title: string, desc: string) {
   return html`<div id=${id} class="absolute inset-0 flex items-end pb-20 lg:items-center">
@@ -106,22 +107,22 @@ function createPhaseTwo() {
     <div class="w-full h-full flex lg:justify-end">
       <div class="relative w-full h-full lg:w-1/2">
         ${createBox(
-          useCasesLearning.id,
+          useCasesLearning.elementId,
           "Learning",
           "Dot Pad gives the low vision community access to maps, diagrams, charts, and other illustrations, allowing easy access to content on the internet."
         )}
         ${createBox(
-          useCasesWork.id,
+          useCasesWork.elementId,
           "Work",
           "By making productivity apps accessible, Dot Pad creates whole new career opportunities and a more inclusive workplace."
         )}
         ${createBox(
-          useCaseCreativity.id,
+          useCaseCreativity.elementId,
           "Creativity",
           "Dot Pad is a powerful tool for creative expression, empowering diverse creators in the fields of graphic design, music production, photography, and more."
         )}
         ${createBox(
-          useCaseEntertainment.id,
+          useCaseEntertainment.elementId,
           "Entertainment",
           "Artworks, exhibits, comics, and movies. The possibilities are endless when it comes to the world of content that is now accessible through the Dot Pad."
         )}

@@ -1,7 +1,7 @@
 import handleScroll from "./scrollHandler";
-import { SectionData, ScrollAnimation, ScrollAnimationElement, sectionDatas, total_vh } from "./datas";
-import { injectScrollMethodToElement } from "./manipulator";
 import { getFeaturesDotactuator } from "./responsiveData";
+import { total_vh, sectionDatas } from "../elements/sectiondatas";
+import { SectionData, ScrollAnimationElement } from "./types";
 
 class Manipulator2D {
   private static instance: Manipulator2D;
@@ -25,9 +25,9 @@ class Manipulator2D {
   gettotal_vh = () => this.total_vh;
   getSectionDatas = () => this.sectionDatas;
 
-  addScrollAnimationElement = (scrollAnimations: Array<ScrollAnimation>) => {
-    scrollAnimations.forEach((sa) => {
-      this.scrollAnimationElements.push(injectScrollMethodToElement(sa));
+  addScrollAnimationElement = (scrollAnimationElements: Array<ScrollAnimationElement>) => {
+    scrollAnimationElements.forEach((sae) => {
+      this.scrollAnimationElements.push(sae);
     });
   };
 
@@ -37,11 +37,11 @@ class Manipulator2D {
 
   onResize = (newWidth: number) => {
     // features-dotactuator
-    const targetIndex = this.scrollAnimationElements.findIndex((sae) => sae.id === "features-dotactuator");
-    const newTarget = injectScrollMethodToElement(getFeaturesDotactuator(newWidth));
+    const targetIndex = this.scrollAnimationElements.findIndex((sae) => sae.elementId === "features-dotactuator");
+    const newScrollAnimationElement = getFeaturesDotactuator(newWidth);
     this.scrollAnimationElements = [
       ...this.scrollAnimationElements.slice(0, targetIndex),
-      newTarget,
+      newScrollAnimationElement,
       ...this.scrollAnimationElements.slice(targetIndex + 1),
     ];
   };

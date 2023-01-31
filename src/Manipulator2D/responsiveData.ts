@@ -1,12 +1,12 @@
-import { ScrollAnimation } from "./datas";
+import { ScrollAnimationElement } from "./types";
 
-export function getFeaturesDotactuator(newWidth: number): ScrollAnimation {
+export function getFeaturesDotactuator(newWidth: number): ScrollAnimationElement {
   return {
-    id: "features-dotactuator",
-    animations: [
+    elementId: "features-dotactuator",
+    scrollAnimations: [
       {
         scrollBoundary: [0.49, 0.55],
-        values: [
+        keyframes: [
           {
             name: "translateX",
             from: newWidth * 1.1,

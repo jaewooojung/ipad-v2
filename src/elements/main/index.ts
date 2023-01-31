@@ -5,12 +5,12 @@ import createFeatures from "./features";
 import createUseCaeses from "./useCases";
 import createContact from "./contact";
 
-import DomDatas from "../../Manipulator2D";
+import Manipulator2D from "../../Manipulator2D";
 
 function createMain() {
-  const domDats = DomDatas.getInstance();
-  const sectionDatas = domDats.getSectionDatas();
-  const total_vh = domDats.gettotal_vh();
+  const manipulator2D = Manipulator2D.getInstance();
+  const sectionDatas = manipulator2D.getSectionDatas();
+  const total_vh = manipulator2D.gettotal_vh();
 
   const height_vh_arr = sectionDatas.map((sd) => Math.round((sd.scrollBoundary[1] - sd.scrollBoundary[0]) * total_vh));
 
