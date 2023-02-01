@@ -25,7 +25,7 @@ const featuresBlackcurtain: ScrollAnimationElement = {
   elementId: "features-black-curtain",
   scrollAnimations: [
     {
-      scrollBoundary: [0.49, 0.49001],
+      scrollBoundary: [0.47, 0.47001],
       keyframes: [{ name: "opacity", from: 0, to: 1 }],
     },
     {
@@ -65,7 +65,7 @@ function createPhaseFour() {
       </div>
       <div
         id=${featuresBlackcurtain.elementId}
-        class="z-10 hidden absolute top-0 left-0 bottom-0 w-1/2 lg:block"
+        class="z-10 hidden absolute top-0 left-0 bottom-0 w-1/2 -translate-x-10 lg:block"
         style="background: linear-gradient(to right, black 30%, transparent)"
       ></div>
       <div id=${featuresDotactuator.elementId} class="flex-[2] w-full flex translate-x-full lg:pt-24">

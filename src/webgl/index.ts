@@ -1,6 +1,6 @@
-import { AmbientLight, Group, Scene } from "three";
-import { ScrollAnimationElement } from "../Manipulator2D/types";
+import { AmbientLight, Group, Object3D, Scene } from "three";
 import { handleScrollIpad, initIpad } from "./objects/ipad";
+import { handleScrollClone } from "./objects/clones";
 import MainCamera from "./systems/MainCamera";
 import Renderer from "./systems/Renderer";
 import { createScene } from "./systems/scene";
@@ -11,8 +11,8 @@ class ThreeApp {
   private sizes: Sizes;
   private mainCamera: MainCamera;
   private renderer: Renderer;
-  private ipad: Group;
-  private ipadSAE: ScrollAnimationElement | null;
+  private ipad: Object3D | null;
+  private clones: Array<Object3D> | null;
 
   constructor(container: HTMLDivElement) {
     this.scene = createScene();
@@ -20,8 +20,8 @@ class ThreeApp {
     this.mainCamera = new MainCamera(this.sizes);
     this.scene.add(this.mainCamera.getCamera());
     this.renderer = new Renderer(this.scene, this.mainCamera.getCamera());
-    this.ipad = new Group();
-    this.ipadSAE = null;
+    this.ipad = null;
+    this.clones = null;
     const canvas = this.renderer.getRenderer().domElement;
     container.append(canvas);
 
@@ -39,8 +39,9 @@ class ThreeApp {
   };
 
   onScroll = (scrY0to1: number) => {
-    if (this.ipad && this.ipadSAE) {
-      handleScrollIpad(scrY0to1, this.ipadSAE, this.ipad);
+    if (this.ipad && this.clones) {
+      handleScrollIpad(scrY0to1, this.ipad);
+      handleScrollClone(scrY0to1, this.clones);
     }
     this.render();
   };
@@ -50,10 +51,9 @@ class ThreeApp {
   };
 
   load = async () => {
-    const { temp: ipadScene, scrollAnimationElement: ipadSAE } = await initIpad();
-    this.ipad.add(ipadScene);
-    this.ipadSAE = ipadSAE;
-
+    const { ipad, clones } = await initIpad();
+    this.ipad = ipad;
+    this.clones = clones;
     this.scene.add(this.ipad);
 
     this.render();

@@ -73,7 +73,7 @@ function createNavLink(id: string, name: string) {
 }
 
 function createHeader() {
-  const header = html`<header class="fixed top-0 left-0 z-10 w-full lg:pr-10">
+  const header = html`<header class="fixed top-0 left-0 z-10 pr-5 lg:pr-10 w-full">
     <div class="p-4 h-header-height flex justify-between items-center bg-black lg:p-10 lg:h-header-height-lg">
       <div><span class="text-3xl lg:text-5xl">iPad</span></div>
       <nav>

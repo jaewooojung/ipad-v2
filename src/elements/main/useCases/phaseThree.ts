@@ -79,21 +79,23 @@ Manipulator2D.getInstance().addScrollAnimationElement(scrollAnimationElements);
 
 function createPhaseThree() {
   return html`<div class="absolute inset-0">
-    <div class="relative w-full h-full flex justify-center items-center">
-      <div
-        id=${useCaseimg1.elementId}
-        style="background: url(https://cdn.pixabay.com/photo/2015/09/05/22/33/office-925806_960_720.jpg); filter: brightness(70%); background-size: contain; background-repeat: no-repeat"
-        class="opacity-0 -translate-x-full"
-      ></div>
-      <div id=${useCaseimg2.elementId} class="opacity-0 translate-x-full">
-        <img
-          src="https://cdn.pixabay.com/photo/2015/05/29/19/17/study-789631_960_720.jpg"
-          width="100%"
-          height="auto"
-          alt="office2"
-        />
+    <div class="relative w-full h-full flex items-center">
+      <div class="relative w-full h-1/3 lg:h-1/2">
+        <div
+          id=${useCaseimg1.elementId}
+          style="background: url(https://cdn.pixabay.com/photo/2015/09/05/22/33/office-925806_960_720.jpg); filter: brightness(70%); background-size: contain; background-repeat: no-repeat"
+          class="opacity-0 -translate-x-full absolute z-10 top-0 left-0 w-2/3 h-full"
+        ></div>
+        <div id=${useCaseimg2.elementId} class="opacity-0 translate-x-full absolute top-0 right-0 w-1/3 h-auto">
+          <img
+            src="https://cdn.pixabay.com/photo/2015/05/29/19/17/study-789631_960_720.jpg"
+            width="100%"
+            height="100%"
+            alt="office2"
+          />
+        </div>
       </div>
-      <div id=${useCaseBecauseapicture.elementId} class="opacity-0 z-20 w-full text-center lg:w-3/4">
+      <div id=${useCaseBecauseapicture.elementId} class="opacity-0 absolute top-1/2 z-20 w-full text-center">
         <span class="text-3xl lg:text-6xl 2xl:text-8xl leading-snug">Because a picture is worth a thousand words.</span>
       </div>
     </div>
