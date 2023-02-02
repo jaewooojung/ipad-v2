@@ -80,13 +80,13 @@ Manipulator2D.getInstance().addScrollAnimationElement(scrollAnimationElements);
 function createPhaseThree() {
   return html`<div class="absolute inset-0">
     <div class="relative w-full h-full flex items-center">
-      <div class="relative w-full h-1/3 lg:h-1/2">
+      <div class="relative w-full h-1/2">
         <div
           id=${useCaseimg1.elementId}
           style="background: url(https://cdn.pixabay.com/photo/2015/09/05/22/33/office-925806_960_720.jpg); filter: brightness(70%); background-size: contain; background-repeat: no-repeat"
-          class="opacity-0 -translate-x-full absolute z-10 top-0 left-0 w-2/3 h-full"
+          class="opacity-0 -translate-x-full absolute z-10 top-0 left-0 w-4/5 h-full"
         ></div>
-        <div id=${useCaseimg2.elementId} class="opacity-0 translate-x-full absolute top-0 right-0 w-1/3 h-auto">
+        <div id=${useCaseimg2.elementId} class="opacity-0 translate-x-full absolute top-0 right-0 w-2/3 h-auto">
           <img
             src="https://cdn.pixabay.com/photo/2015/05/29/19/17/study-789631_960_720.jpg"
             width="100%"

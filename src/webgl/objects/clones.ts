@@ -1,6 +1,6 @@
 import { Object3D } from "three";
 import { ScrollAnimationElement3D } from "../types";
-import { manipulateDirectly, manipulateLinearly } from "./ipad";
+import { manipulateDirectly, manipulateLinearly } from "./scrollHandler";
 
 const inParent = [0, 0, 0, 0, 0, 0, 1, 1, 1];
 
@@ -155,25 +155,4 @@ const scrollAnimationCloneArr: Array<ScrollAnimationElement3D> = [
   },
 ];
 
-function handleScrollClone(scrY0to1: number, clones: Array<Object3D>) {
-  clones.forEach((clone, i) => {
-    const scrollAnimations = scrollAnimationCloneArr[i].scrollAnimations;
-    const lastScrollAnimation = scrollAnimations[scrollAnimations.length - 1];
-    if (scrY0to1 > lastScrollAnimation.scrollBoundary[1]) {
-      // 지나감
-      manipulateDirectly(clone, lastScrollAnimation.states.to);
-    } else {
-      for (const sa of scrollAnimations) {
-        if (scrY0to1 < sa.scrollBoundary[0]) {
-          manipulateDirectly(clone, sa.states.from);
-          break;
-        } else if (scrY0to1 <= sa.scrollBoundary[1]) {
-          manipulateLinearly(scrY0to1, clone, sa);
-          break;
-        }
-      }
-    }
-  });
-}
-
-export { handleScrollClone };
+export { scrollAnimationCloneArr };
