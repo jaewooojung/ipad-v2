@@ -1,7 +1,7 @@
 import { html } from "lit";
 
 import Manipulator2D from "../../Manipulator2D";
-import { ScrollAnimationElement } from "../../Manipulator2D/types";
+import { ScrollAnimationElement, SectionData } from "../../Manipulator2D/types";
 import { sectionDatas, total_vh } from "../sectiondatas";
 
 const headerLinkIntro: ScrollAnimationElement = {
@@ -63,8 +63,9 @@ const scrollAnimations = [headerLinkIntro, headerLinkFeatures, headerLinkUseCase
 
 Manipulator2D.getInstance().addScrollAnimationElement(scrollAnimations);
 
-function createNavLink(id: string, name: string) {
+function createNavLink(id: string, name: string, onClickLink: (sectionName: string) => void) {
   return html`<li
+    @click="${() => onClickLink(name)}"
     class="relative px-5 py-1 border border-solid border-white rounded-3xl overflow-hidden cursor-pointer hover:bg-white"
   >
     <div id=${id} class="absolute inset-0 bg-white origin-left scale-x-0"></div>
@@ -73,6 +74,15 @@ function createNavLink(id: string, name: string) {
 }
 
 function createHeader() {
+  const onClickLink = (sectionName: string) => {
+    console.log("?", sectionName);
+    const targetSection = sectionDatas.find((sd) => sd.name === sectionName) as SectionData;
+    const temp =
+      sectionName === "Features" ? targetSection.scrollBoundary[0] * 1.2 : targetSection.scrollBoundary[0] * 1.01;
+    const scrollY = document.body.scrollHeight * temp;
+    console.log(document.body.scrollHeight);
+    document.body.scrollTo(0, scrollY);
+  };
   const header = html`<header class="fixed top-0 left-0 z-10 pr-5 lg:pr-10 w-full">
     <div class="p-4 h-header-height flex justify-between items-center bg-black lg:p-10 lg:h-header-height-lg">
       <div><span class="text-3xl lg:text-5xl">iPad</span></div>
@@ -85,9 +95,10 @@ function createHeader() {
           </button>
         </div>
         <ul class="hidden lg:flex lg:gap-5">
-          ${createNavLink(headerLinkIntro.elementId, "Ipad")} ${createNavLink(headerLinkFeatures.elementId, "Features")}
-          ${createNavLink(headerLinkUseCases.elementId, "Use cases")}
-          ${createNavLink(headerLinkContact.elementId, "Contact")}
+          ${createNavLink(headerLinkIntro.elementId, sectionDatas[0].name, onClickLink)}
+          ${createNavLink(headerLinkFeatures.elementId, sectionDatas[1].name, onClickLink)}
+          ${createNavLink(headerLinkUseCases.elementId, sectionDatas[2].name, onClickLink)}
+          ${createNavLink(headerLinkContact.elementId, sectionDatas[3].name, onClickLink)}
         </ul>
       </nav>
     </div>

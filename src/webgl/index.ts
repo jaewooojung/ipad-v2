@@ -40,7 +40,6 @@ class ThreeApp {
   onResize = () => {
     const { width, height, pixelRatio } = this.sizes.onResize();
     const isMobilePortrait = width < 640 && width < height;
-    // const newWidth = isMobilePortrait ? width / 2 : width;
     const newHeight = isMobilePortrait ? height * (5 / 16) : height;
     this.mainCamera.onResize(width, newHeight);
     this.renderer.onResize(width, newHeight, pixelRatio);
