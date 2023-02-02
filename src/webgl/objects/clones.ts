@@ -1,6 +1,4 @@
-import { Object3D } from "three";
 import { ScrollAnimationElement3D } from "../types";
-import { manipulateDirectly, manipulateLinearly } from "./scrollHandler";
 
 const inParent = [0, 0, 0, 0, 0, 0, 1, 1, 1];
 

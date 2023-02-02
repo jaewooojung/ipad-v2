@@ -12,7 +12,7 @@ async function initIpad() {
   const dracoLoader = new DRACOLoader();
   dracoLoader.setDecoderPath("/draco/gltf/");
   gltfLoader.setDRACOLoader(dracoLoader);
-  const aa = await gltfLoader.loadAsync("/untitled4.glb");
+  const aa = await gltfLoader.loadAsync("/ipad.glb");
   const ipad = aa.scene.children[0];
   const clones = [];
   for (let i = 0; i < 4; i++) {

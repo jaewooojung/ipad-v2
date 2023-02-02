@@ -32,7 +32,7 @@ function createPhaseOne() {
     <div class="sticky top-0 left-0 h-screen flex justify-center items-center ">
       <div id=${useCasesVideo.elementId} class="opacity-0 w-full h-auto flex justify-center items-center lg:w-3/4">
         <video muted controls mute width="100%" height="100%">
-          <source src="/untitled.mp4" type="video/mp4" />
+          <source src="/video1.mp4" type="video/mp4" />
         </video>
       </div>
     </div>
